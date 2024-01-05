@@ -24,11 +24,16 @@
 }
 
 .text-bigger {
-	font-size: 2.25rem;
-	line-height: 1.1;
+	font-size: 2rem;
+	line-height: 1.2;
 
 	@media #{$mq-sm-min} {
+		font-size: 2.25rem;
+	}
+
+	@media #{$mq-md-min} {
 		font-size: 2.5rem;
+		line-height: 1.1;
 	}
 
 	@media #{$mq-lg-min} {

@@ -46,7 +46,7 @@ export default function TopMenu(props) {
 			<div className='container container-big'>
 				<div className={styles.flex}>
 
-					<MagneticButton strength={30}>
+					<MagneticButton>
 						<Link
 							className={styles.logo}
 							href={routes.home}

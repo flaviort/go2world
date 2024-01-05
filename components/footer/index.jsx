@@ -12,6 +12,7 @@ import routes from '@/config/routes'
 
 // components
 import MagneticButton from '@/components/utils/magnetic-button'
+import { Input } from '@/components/form'
 
 // import necessary svgs
 import Logo from '@/assets/svg/logo.svg'
@@ -48,7 +49,7 @@ export default function Footer() {
 
 	const menu = [
 		{
-			title: 'Quem somos',
+			title: 'Menu',
 			links: [
 				{ name: 'Início', url: routes.home },
 				{ name: 'Sobre', url: routes.about },
@@ -94,7 +95,7 @@ export default function Footer() {
 								hoje mesmo.
 							</h2>
 
-							<MagneticButton strength='30'>
+							<MagneticButton>
 								<Link href={routes.quote} className='black-button text-small'>
 									<span>Solicite uma cotação</span>
 									<UxArrowRight />
@@ -109,69 +110,109 @@ export default function Footer() {
 
 			<section className={styles.footer}>
 				<div className='container'>
-					<div className='row'>
 
-						<div className={styles.left + ' col-lg-4'}>
+					<div className={styles.top}>
+						<div className='row'>
 
-							<Link href={routes.home} className={styles.logo} aria-label='Go to Homepage'>
-								<Logo />
-							</Link>
+							<div className={styles.left + ' col-lg-6'}>
+								<div className={styles.wrapper}>
 
-							<ul className={styles.social}>
-								
-								<li>
-									<a
-										href={routes.instagram}
-										target='_blank'
-										rel='noreferrer'
-										aria-label='Instagram'
-									>
-										<SocialInstagram />
-									</a>
-								</li>
+									<p className={styles.text}>
+										<b>Se inscreva na nossa newsletter</b>
+										Inscreva-se na nossa newsletter para informações relevantes. Sem spam, apenas conteúdo valioso diretamente para você.
+									</p>
 
-							</ul>
+									<form action='#' className={styles.form}>
 
-						</div>
+										<Input
+											dark={true}
+											label='Email'
+											type='email'
+											id='newsletter-email'
+											placeholder='email@email.com'
+											required={true}
+											maxLength={100}
+										/>
 
-						<div className={styles.right + ' col-lg-8'}>
-							<nav className={styles.menu}>
-								{ menu.map((item, i) => (
-									<ul key={i}>
+										<div className={styles.lastLine}>
 
-										<li>
-											<p className={styles.title}>
-												{ item.title }
-											</p>
-										</li>
+											<div className={styles.noMargin + ' form-line'}>
 
-										{item.links.map((link, i) => (
-											<li key={i}>
+												<input type='submit' id='send-newsletter' />
+
+												<MagneticButton>
+													<label htmlFor='send-newsletter' className='blue-button text-small'>
+														<span>Enviar</span>
+														<UxArrowRight />
+													</label>
+												</MagneticButton>
+
+											</div>
+
+											<MagneticButton>
 												<Link
-													href={link.url}
-													className='hover-underline'
-													aria-label={link.name}
+													href={routes.instagram}
+													target='_blank'
+													className={styles.social}
+													rel='noreferrer'
+													aria-label='Instagram'
 												>
-													{link.name}
+													<SocialInstagram />
 												</Link>
+											</MagneticButton>
+
+										</div>
+
+									</form>
+
+									
+
+								</div>
+							</div>
+
+							<div className={styles.right + ' col-lg-6'}>
+								<nav className={styles.menu}>
+									{ menu.map((item, i) => (
+										<ul key={i}>
+
+											<li>
+												<p className={styles.title}>
+													{ item.title }
+												</p>
 											</li>
-										))}
 
-									</ul>
-								))}
-							</nav>
+											{item.links.map((link, i) => (
+												<li key={i}>
+													<MagneticButton>
+														<Link
+															href={link.url}
+															className='hover-underline'
+															aria-label={link.name}
+														>
+															{link.name}
+														</Link>
+													</MagneticButton>
+												</li>
+											))}
+
+										</ul>
+									))}
+								</nav>
+							</div>
+
 						</div>
-
 					</div>
 
 					<div className={styles.bottom}>
 
-						<Link href={routes.home}>
-							<Logo />
-						</Link>
+						<MagneticButton>
+							<Link href={routes.home} className={styles.logo} aria-label='Início'>
+								<Logo />
+							</Link>
+						</MagneticButton>
 
 						<p className='text-small'>
-							Copyright @ Go2World {new Date().getFullYear()} - Powered by <Link href={routes.senz} target='_blank' className='hover-underline-white'>Senz</Link>
+							Copyright @ Go2World {new Date().getFullYear()}
 						</p>
 
 					</div>

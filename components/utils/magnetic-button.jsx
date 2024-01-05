@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap, { Elastic, Power4 } from 'gsap'
 
-const MagneticButton = ({ children, strength }) => {
+const MagneticButton = ({ children, strength = 30 }) => {
     
     const buttonRef = useRef(null)
 
@@ -44,7 +44,7 @@ const MagneticButton = ({ children, strength }) => {
     }, [strength])
 
     return (
-        <div ref={buttonRef}>
+        <div ref={buttonRef} style={{ width: 'fit-content' }}>
             {children}
         </div>
     )

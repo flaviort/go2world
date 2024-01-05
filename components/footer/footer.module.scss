@@ -1,7 +1,8 @@
 .cta {
+    overflow: hidden;
+    
     .blueBox {
         position: relative;
-        //overflow: hidden;
         clip-path: inset(0 0 0 -100%);
 
         .pattern {
@@ -28,23 +29,223 @@
         .shippingContainer {
             position: absolute;
             z-index: 1;
-            top: 15%;
-            right: -10%;
-            width: 75%;
+            top: 20%;
+            right: -45%;
+            width: 100%;
+            min-height: 100%;
+            object-fit: contain;
+
+            @media #{$mq-sm-min} {
+                top: 15%;
+                right: -10%;
+                width: 75%;
+            }
         }
 
         .flex {
             position: relative;
             z-index: 2;
+            padding: clamp(3rem, 8vw, 7.5rem) 0;
+            color: $white;
+
+            @media #{$mq-sm-min} {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+
+            a {
+                margin: 1rem 0 0 0;
+
+                @media #{$mq-sm-min} {
+                    margin: 0 10vw 0 0;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    z-index: 1;
+    background-color: $black;
+    margin-top: calc( -1 * 1.5 * clamp(3rem, 8vw, 7.5rem));
+    padding-top: calc( 1.5 * clamp(3rem, 8vw, 7.5rem));
+    overflow: hidden;
+
+    > div {
+        padding-top: clamp(2rem, 6vw, 5rem);
+        padding-bottom: clamp(1.5rem, 4vw, 3rem);
+        color: $white;
+
+        .top {
+            position: relative;
+
+            .left {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    z-index: 1;
+                    bottom: 0;
+                    right: -3rem;
+                    width: 150vw;
+                    height: calc(100% + clamp(2rem, 6vw, 5rem) + calc( 1.5 * clamp(3rem, 8vw, 7.5rem)));
+                    background-color: $gray-darkest;
+
+                    @media #{$mq-lg-min} {
+                        right: 0;
+                    }
+                }
+
+                .wrapper {
+                    position: relative;
+                    z-index: 2;
+                    max-width: 95%;
+
+                    @media #{$mq-lg-min} {
+                        width: 28rem;
+                        max-width: 90%;
+                    }
+
+                    .text {
+                        display: block;
+                        max-width: 100%;
+
+                        @media #{$mq-lg-min} {
+                            width: 25rem;
+                        }
+            
+                        b {
+                            text-transform: uppercase;
+                            display: block;
+                            margin-bottom: 1rem;
+                        }
+                    }
+            
+                    .form {
+                        display: block;
+                        margin-top: 2.5rem;
+                        padding-bottom: 3rem;
+
+                        @media #{$mq-lg-min} {
+                            padding-bottom: 4rem;
+                        }
+
+                        .noMargin {
+                            margin: 0;
+                        }
+
+                        .lastLine {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+            
+                            label {
+                                margin: 0;
+                                width: fit-content;
+                                padding: 1.25rem 2.5rem;
+                            }
+            
+                            .social {
+                                display: flex;
+                                min-width: 1.125rem;
+                                width: 1.125rem;
+                                height: 1.125rem;
+                                transition: color .3s ease-in-out;
+            
+                                &:hover {
+                                    color: $blue;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right {
+                @media #{$mq-lg-max} {
+                    padding-top: 2rem;
+                }
+
+                .menu {
+                    display: flex;
+                    justify-content: space-between;
+                    padding-left: .5rem;
+                    padding-right: .5rem;
+
+                    @media #{$mq-sm-min} {
+                        gap: 25vw;
+                        justify-content: flex-start;
+                    }
+
+                    @media #{$mq-lg-min} {
+                        padding-left: 3rem;
+                        padding-right: 1rem;
+                        justify-content: space-between;
+                        gap: 4rem;
+                    }
+
+                    @media #{$mq-xl-min} {
+                        padding-left: 5rem;
+                    }
+
+                    li {
+                        display: block;
+                        padding: .375rem 0;
+
+                        .title {
+                            display: block;
+                            padding-bottom: 1rem;
+                            text-transform: uppercase;
+                            font-weight: $bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottom {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 1rem;
-            padding: 7.5rem 0;
-            color: $white;
+            padding-top: clamp(1rem, 4vw, 3rem);
 
-            a {
-                margin-right: 10vw;
+            @media #{$mq-lg-max} {
+                border-top: 1px solid $gray-dark;
+                margin-top: clamp(1rem, 4vw, 3rem);
+            }
+
+            .logo {
+                display: flex;
+                width: 8rem;
+
+                @media #{$mq-sm-min} {
+                    width: 10rem;
+                }
+
+                &:hover {
+                    svg {
+                        path {
+                            fill: $blue;
+                        }
+                    }
+                }
+
+                svg {
+                    path {
+                        fill: $white;
+                        transition: .3s ease-in-out;
+                    }
+                }
+            }
+
+            p {
+                a {
+                    &:after {
+                        background-color: $gray-darkest;
+                    }
+                }
             }
         }
     }

@@ -1,0 +1,66 @@
+.text-smaller {
+	font-size: .75rem;
+}
+
+.text-small {
+	font-size: .85rem;
+}
+
+.text-medium {
+	font-size: 1.15rem;
+}
+
+.text-medium-big {
+	font-size: 1.25rem;
+
+	@media #{$mq-md-min} {
+		font-size: 1.375rem;
+	}
+}
+
+.text-big {
+	font-size: 2rem;
+	line-height: 1.2;
+}
+
+.text-bigger {
+	font-size: 2.25rem;
+	line-height: 1.1;
+
+	@media #{$mq-sm-min} {
+		font-size: 2.5rem;
+	}
+
+	@media #{$mq-lg-min} {
+		font-size: 2.75rem;
+	}
+}
+
+.text-biggest {
+	font-size: 4rem;
+	line-height: 1.275;
+
+	@media #{$mq-xs-min} {
+		font-size: 4.5rem;
+	}
+
+	@media #{$mq-sm-min} {
+		font-size: 5rem;
+	}
+
+	@media #{$mq-md-min} {
+		font-size: 5.5rem;
+	}
+}
+
+.regular {
+	font-weight: $regular;
+}
+
+.medium {
+	font-weight: $medium;
+}
+
+.bold {
+	font-weight: $bold;
+}

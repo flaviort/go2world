@@ -1,0 +1,27 @@
+{
+  "name": "go2world",
+  "version": "0.1.0",
+  "homepage": "https://go2world.com.br/",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@svgr/webpack": "6.5.1",
+    "gsap": "3.11.4",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "recoil": "^0.7.7",
+    "swiper": "^11.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "node-sass": "7.0.3",
+    "sass": "1.57.1"
+  }
+}

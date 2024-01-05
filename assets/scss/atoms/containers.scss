@@ -1,0 +1,16 @@
+.container {
+	width: 100%;
+	max-width: calc(100% - .75rem);	
+	@media #{$mq-xs-min} { max-width: 95%; }
+	@media #{$mq-md-min} { max-width: 90%; }
+	@media #{$mq-lg-min} { max-width: 85%; }
+	@media #{$mq-xl-min} { max-width: 80%; }
+	@media #{$mq-2xl-min} { max-width: calc(90vw - 8rem) }
+}
+
+.container-big {
+	max-width: calc(100% - .75rem);
+	@media #{$mq-sm-min} { max-width: calc(100% - 1rem); }
+	@media #{$mq-md-min} { max-width: calc(100% - 2rem); }
+	@media #{$mq-2xl-min} { max-width: calc(100vw - 4rem) }
+}

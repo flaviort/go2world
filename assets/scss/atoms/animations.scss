@@ -1,0 +1,40 @@
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(359deg);
+	}
+}
+
+.once-in {
+	will-change: transform;
+}
+
+.split-line {
+	overflow: hidden;
+
+	* {
+		will-change: transform;
+	}
+}
+
+.fill-title > * {
+	background: linear-gradient(
+		to right,
+		$black 50%,
+		$gray-lightest 50%
+	);
+	background-size: 200% 100%;
+	background-position-x: 100%;
+	color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+	font-weight: $bold;
+}
+
+.reveal-text {
+	position: relative;
+	overflow: hidden;
+}

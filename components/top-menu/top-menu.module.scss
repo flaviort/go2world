@@ -1,0 +1,100 @@
+.topMenu {
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 1.25rem;
+
+    @media #{$mq-sm-min} {
+        padding-top: 1.5rem;
+    }
+
+    .flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .logo {
+            display: flex;
+            width: 11rem;
+
+            @media #{$mq-sm-min} {
+                width: 15rem;
+            }
+
+            @media #{$mq-lg-min} {
+                width: 13rem;
+            }
+
+            &:hover {
+                svg {
+                    path {
+                        fill: $blue!important;
+                    }
+                }
+            }
+
+            svg {
+                width: 100%;
+
+                path {
+                    transition: .3s ease-in-out;
+                }
+            }
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+
+            @media #{$mq-sm-min} {
+                gap: 2rem;
+            }
+
+            .menu {
+                @media #{$mq-lg-max} {
+                    display: none;
+                }
+
+                ul {
+                    display: flex;
+                    align-items: center;
+                    gap: 2rem;
+                    text-transform: uppercase;
+                }
+            }
+
+            .hideMob {
+                @media #{$mq-sm-max} {
+                    display: none;
+                }
+            }
+
+            .openFs {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.5rem;
+                height: 1.5rem;
+
+                @media #{$mq-lg-min} {
+                    display: none;
+                }
+
+                &:hover {
+                    svg {
+                        color: $blue;
+                    }
+                }
+
+                svg {
+                    width: 100%;
+                    transition: .3s ease-in-out;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,248 @@
+.form-line {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+
+    @media #{$mq-sm-min} {
+        margin-bottom: 1.25rem;
+    }
+
+    &.no-space {
+        margin-bottom: 0;
+    }
+
+    &.error {
+        .label {
+            color: $red;
+        }
+
+        .line-wrapper {
+            .input {
+                border-color: $red!important;
+                color: $red;
+
+                &::placeholder {
+                    color: $red;
+                }
+            }
+
+            svg {
+                color: $red;
+            }
+        }
+
+        .error-msg {
+            display: block;
+            color: $red;
+            padding-top: .5rem;
+            font-size: 75%;
+        }
+    }
+
+    .label {
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin-bottom: .25rem;
+
+        .required {
+            color: $blue;
+        }
+    }
+
+    .line-wrapper {
+        position: relative;
+        display: block;
+        width: 100%;
+
+        .input {
+            display: block;
+            position: relative;
+            z-index: 0;
+            width: 100%;
+            border: none;
+            border: 1px solid $gray-lighter;
+            border-radius: .25rem;
+            box-shadow: inset 0 0 0 10rem $white;
+            background-color: $white;
+            padding: .75rem 1rem;
+            margin: 0;
+
+            &.textarea {
+                resize: vertical;
+                min-height: 9.125rem;
+                height: 9.125rem;
+            }
+
+            &.select {
+                cursor: pointer;
+            }
+
+            &::placeholder {
+                color: $gray-lighter;
+            }
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            width: .75rem;
+            height: .75rem;
+            color: $gray-light;
+            pointer-events: none;
+        }
+    }
+
+    input[type='submit'] {
+        position: absolute;
+        top: -999rem;
+        left: -999rem;
+        z-index: -999;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        width: 0;
+        height: 0;
+        border: none;
+        background-color: transparent;
+        font-size: 0;
+        color: transparent;
+        box-shadow: none;
+        outline: none;
+        line-height: 0;
+    }
+}
+
+select {
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input,
+select,
+textarea {
+    box-sizing: border-box;
+    appearance: none;
+    background-clip: padding-box;
+
+    &:disabled {
+        cursor: not-allowed!important;
+        opacity: .25;
+    }
+}
+
+.file-input {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: .5rem;
+    background-color: $white;
+    border: 1px solid $gray-lighter;
+
+    .file-input-label {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    input {
+        position: absolute;
+        z-index: -999;
+        top: -9999rem;
+        left: -999rem;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        color: transparent;
+        border: none;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .file-input-image {
+        position: absolute;
+        overflow: hidden;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%!important;
+        height: 75%!important;
+        inset: 50%!important;
+        border-radius: .25rem;
+        object-fit: cover;
+        color: transparent;
+    }
+
+    .file-input-text-background {
+        position: absolute;
+        z-index: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+        color: $gray-lighter;
+    }
+}
+
+.checkbox-wrap {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    input {
+        position: absolute;
+        top: -999rem;
+        left: -999rem;
+        z-index: -999;
+        opacity: 0;
+        color: transparent;
+        border: none;
+        background-color: transparent;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .checkbox {
+        display: flex;
+        width: 1.75rem;
+        min-width: 1.75rem;
+        height: 1.75rem;
+        border-radius: .25rem;
+        border: 1px solid $gray-lightest;
+        background-color: $white;
+        padding: .375rem;
+        cursor: pointer;
+
+        svg {
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
+            transform: none;
+            width: 100%;
+            height: 100%;
+            color: $blue;
+        }
+    }
+
+    .checkbox-text {
+        font-weight: $bold;
+        cursor: pointer;
+    }
+}

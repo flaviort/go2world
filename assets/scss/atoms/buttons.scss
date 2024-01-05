@@ -1,0 +1,137 @@
+.hover-underline {
+    position: relative;
+    cursor: pointer;
+
+    &:hover,
+    &.active {
+        &:before {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: currentColor;
+        bottom: -.1rem;
+        left: 0;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform .3s ease-in-out;
+    }
+}
+
+.hover-underline-white {
+    display: inline-flex;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: currentColor;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $white;
+        transform: translateX(-100%);
+        transition: .6s;
+    }
+
+    &:hover {
+        &:after {
+            transform: translateX(100%);
+        }
+    }
+}
+
+.blue-button,
+.hollow-button,
+.hollow-white-button,
+.white-button,
+.black-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    vertical-align: middle;
+    width: fit-content;
+    cursor: pointer;
+    position: relative;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: 5rem;
+    font-weight: $medium;
+    text-transform: uppercase;
+    transition: .3s ease-in-out;
+    padding: .75rem 1.5rem;
+    margin: auto;
+
+    @media #{$mq-sm-min} {
+        padding: 1rem 1.5rem;
+    }
+
+    @media #{$mq-xl-min} {
+        padding: 1rem 2rem;
+    }
+
+    svg {
+        width: .75rem;
+        min-width: .75rem;
+        height: .75rem;
+    }
+}
+
+.hollow-button {
+    border: 1px solid $gray-darker;
+    color: $gray-darker;
+
+    &:hover {
+        background-color: $gray-darker;
+        color: $white;
+    }
+}
+
+.hollow-white-button {
+    border: 1px solid $white;
+    color: $white;
+
+    &:hover {
+        background-color: $white;
+        color: $blue;
+    }
+}
+
+.blue-button {
+    background-color: $blue;
+    color: $white;
+
+    &:hover {
+        background-color: $gray-darker;
+        color: $white;
+    }
+}
+
+.black-button {
+    background-color: $black;
+    color: $white;
+
+    &:hover {
+        background-color: $blue;
+        color: $white;
+    }
+}

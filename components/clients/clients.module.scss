@@ -1,0 +1,65 @@
+.clients {
+    margin-bottom: var(--section-space);
+
+    .top {
+        .flex {
+            @media #{$mq-md-min} {
+                display: flex;
+                justify-content: space-between;
+                gap: 3rem;
+            }
+
+            h2 {
+                @media #{$mq-md-min} {
+                    width: 50%;
+                }
+            }
+
+            p {
+                display: block;
+                padding-top: 1rem;
+
+                @media #{$mq-md-min} {
+                    width: 50%;
+                    padding-top: .375rem;
+                }
+            }
+        }
+    }
+
+    & :global {
+        .swiper-wrapper {
+            display: flex;
+            align-items: center;
+
+            .swiper-slide {
+                text-align: center;
+            }
+        }
+    }
+
+    .slider {
+        margin-top: calc(var(--section-space) / 1.5);
+
+        .block {
+            display: block;
+            border: 1px solid $gray-lightest;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+
+            img,
+            svg {
+                top: 50%!important;
+                left: 50%!important;
+                right: auto!important;
+                bottom: auto!important;
+                transform: translate(-50%, -50%)!important;
+                width: 75%!important;
+                height: 25%!important;
+                object-fit: contain;
+                aspect-ratio: 16 / 9!important;
+            }
+        }
+    }
+}

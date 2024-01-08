@@ -219,18 +219,17 @@ body {
 
 // global margins, paddings and etc
 :root {
-    --section-margin-bottom: 5vh;
+    --section-space: 6vh;
 
 	@media #{$mq-md-min} {
-		--section-margin-bottom: 3rem;
+		--section-space: 5rem;
 	}
 
 	@media #{$mq-lg-min} {
-		--section-margin-bottom: 4.125rem;
+		--section-space: 6rem;
 	}
 
 	// main colors
-	--orange: #f68621;
 	--blue: #225cf2;
 }
 

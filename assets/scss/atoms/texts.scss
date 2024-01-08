@@ -10,34 +10,21 @@
 	font-size: 1.15rem;
 }
 
-.text-medium-big {
-	font-size: 1.25rem;
-
-	@media #{$mq-md-min} {
-		font-size: 1.375rem;
-	}
-}
-
 .text-big {
 	font-size: 2rem;
 	line-height: 1.2;
 }
 
 .text-bigger {
-	font-size: 2rem;
+	font-size: 1.75rem;
 	line-height: 1.2;
 
 	@media #{$mq-sm-min} {
-		font-size: 2.25rem;
+		font-size: 2rem;
 	}
 
 	@media #{$mq-md-min} {
-		font-size: 2.5rem;
-		line-height: 1.1;
-	}
-
-	@media #{$mq-lg-min} {
-		font-size: 2.75rem;
+		font-size: 2.25rem;
 	}
 }
 
@@ -68,4 +55,17 @@
 
 .bold {
 	font-weight: $bold;
+}
+
+.subtitle {
+	text-transform: uppercase;
+	color: $blue;
+	font-weight: $bold;
+	font-size: 90%;
+	display: block;
+	margin-bottom: 1rem;
+
+	&:after {
+		content: ' /';
+	}
 }

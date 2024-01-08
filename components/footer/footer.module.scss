@@ -45,7 +45,7 @@
         .flex {
             position: relative;
             z-index: 2;
-            padding: clamp(3rem, 8vw, 7.5rem) 0;
+            padding: var(--section-space) 0;
             color: $white;
 
             @media #{$mq-sm-min} {

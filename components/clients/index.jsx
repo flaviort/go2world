@@ -59,7 +59,7 @@ export default function Clients() {
 					mousewheel={{  
 						forceToAxis: true
 					}}
-					autoplay={{ delay: 3000, disableOnInteraction: false }}
+					autoplay={{ delay: 1500, disableOnInteraction: false }}
 					speed={600}
 					breakpoints={{
 						575: {

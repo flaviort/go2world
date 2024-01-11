@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 
 // swiper related imports
 import { register } from 'swiper/element/bundle'

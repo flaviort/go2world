@@ -38,7 +38,7 @@ export const getAllServices = () => {
 	return {
 		'frete-aereo': {
 			title: 'Frete Aéreo',
-			smallDesc: 'Otimize prazos e alcance destinos globais com nosso frete aéreo especializado.',
+			smallDesc: 'Otimize prazos e alcance destinos globais com nosso frete aéreo.',
 			icon: <ServicesPlane />
 		},
 		'frete-maritimo': {
@@ -59,7 +59,7 @@ export const getAllServices = () => {
 		},
 		'servicos-logisticos': {
 			title: 'Serviços Logísticos',
-			smallDesc: 'Integre eficiência aos seus processos com nossos Serviços Logísticos abrangentes.'
+			smallDesc: 'Integre eficiência aos seus processos com nossos Serviços Logísticos.'
 		}
 	}
 }

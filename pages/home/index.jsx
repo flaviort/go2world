@@ -1,9 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import useMediaQuery from '@react-hook/media-query'
 
-// import routes
+// import routes / services
 import routes from '@/utils/routes'
-import { getPostIdList, getAllServices, getIconComponent } from '@/utils/services'
+import { getAllServices, getIconComponent } from '@/utils/services'
+
+// swiper related imports
+import { register } from 'swiper/element/bundle'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
 
 // components
 import SEOContainer from '@/components/utils/seo-container'
@@ -20,8 +27,38 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 import styles from './home.module.scss'
 
 export default function Home() {
+
+	// get all services
 	const allServices = getAllServices()
 	const serviceKeys = Object.keys(allServices)
+
+	// state to track the window width on the client side
+	const [windowWidth, setWindowWidth] = useState(0)
+
+	useEffect(() => {
+
+		// this is needed for swiper
+		register()
+		
+		const updateWindowWidth = () => {
+		  	setWindowWidth(window.innerWidth)
+		}
+	
+		// initial update
+		updateWindowWidth()
+	
+		// event listener for window resize
+		window.addEventListener('resize', updateWindowWidth)
+	
+		// cleanup the event listener on component unmount
+		return () => {
+		  	window.removeEventListener('resize', updateWindowWidth)
+		}
+
+	}, [])
+
+	// calculate the breakpoint on the client side
+	const breakXs = windowWidth > 575
 
     return (
 		<>
@@ -58,17 +95,41 @@ export default function Home() {
 
 						</div>
 
-						<div className={styles.grid}>
-							{serviceKeys.map((key) => (
-								<ServiceBlock
-									key={key}
-									serviceTitle={allServices[key].title}
-									serviceSmallDesc={allServices[key].smallDesc}
-									serviceLink={'servicos/' + key}
-									serviceIcon={getIconComponent(key)}
-								/>
-							))}
-						</div>
+						{ breakXs ? (
+							<div className={styles.grid}>
+								{serviceKeys.map((key) => (
+									<ServiceBlock
+										key={key}
+										serviceTitle={allServices[key].title}
+										serviceSmallDesc={allServices[key].smallDesc}
+										serviceLink={'servicos/' + key}
+										serviceIcon={getIconComponent(key)}
+									/>
+								))}
+							</div>
+						):(
+							<Swiper
+								className={styles.slider}
+								spaceBetween={10}
+								slidesPerView={1.3}
+								freeMode={true}
+								mousewheel={{  
+									forceToAxis: true
+								}}
+							>
+								{serviceKeys.map((key) => (
+									<SwiperSlide key={key}>
+										<ServiceBlock
+											key={key}
+											serviceTitle={allServices[key].title}
+											serviceSmallDesc={allServices[key].smallDesc}
+											serviceLink={'servicos/' + key}
+											serviceIcon={getIconComponent(key)}
+										/>
+									</SwiperSlide>
+								))}
+							</Swiper>
+						)}
 
 					</div>
 				</section>

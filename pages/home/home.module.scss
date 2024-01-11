@@ -13,6 +13,8 @@
         }
     
         .top {
+            padding-bottom: calc(var(--section-space) / 2);
+
             .flex {
                 @media #{$mq-md-min} {
                     display: flex;
@@ -31,14 +33,9 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             align-items: stretch;
             gap: 1rem;
-            padding-top: calc(var(--section-space) / 3);
-
-            @media #{$mq-sm-min} {
-                grid-template-columns: repeat(2, 1fr);
-            }
 
             @media #{$mq-lg-min} {
                 grid-template-columns: repeat(3, 1fr);
@@ -48,9 +45,7 @@
             > div {
                 &:nth-child(odd) {
                     a {
-                        @media #{$mq-sm-min} {
-                            transform: translateY(4rem);
-                        }
+                        transform: translateY(4rem);
 
                         @media #{$mq-lg-min} {
                             transform: none;
@@ -95,6 +90,10 @@
                     }
                 }
             }
+        }
+
+        .slider {
+            overflow: visible;
         }
     }
 

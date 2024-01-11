@@ -14,7 +14,7 @@ export default function SEOContainer({ title, description }) {
 
     return (
         <Head>
-            <title>{title + ' | ' + siteName}</title>
+            <title>{siteName + ' | ' + title}</title>
             <meta name='description' content={description} />
 
             <meta name='Robots' content='all' />

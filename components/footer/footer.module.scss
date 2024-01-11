@@ -5,6 +5,10 @@
         position: relative;
         clip-path: inset(0 0 0 -100%);
 
+        @media #{$mq-lg-min} {
+            width: 92.5%;
+        }
+
         .pattern {
             position: absolute;
             z-index: 0;
@@ -60,6 +64,11 @@
 
                 @media #{$mq-sm-min} {
                     margin: 0 10vw 0 0;
+                }
+
+                &:hover {
+                    background-color: $white;
+                    color: $black;
                 }
             }
         }

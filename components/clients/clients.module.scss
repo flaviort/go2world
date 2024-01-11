@@ -40,8 +40,14 @@
 
     .slider {
         margin-top: calc(var(--section-space) / 1.5);
+        padding-bottom: 2px;
+
+        @media #{$mq-lg-max} {
+            overflow: visible;
+        }
 
         .block {
+            position: relative;
             display: block;
             border: 1px solid $gray-lightest;
             width: 100%;

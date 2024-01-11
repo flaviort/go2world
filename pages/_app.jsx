@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { RecoilRoot } from 'recoil'
-import { ReactLenis, useLenis } from '@studio-freight/react-lenis'
+import SmoothScrolling from '@/components/utils/smooth-scrolling'
 
 import TopMenu from '../components/top-menu'
 import FsMenu from '../components/fs-menu'
@@ -14,11 +14,6 @@ import '../assets/scss/main.scss'
 import { poppins } from '../assets/fonts/index'
 
 export default function App({ Component, pageProps, router }) {
-
-	const lenis = useLenis(({ scroll }) => {
-		// called every scroll
-	})
-
 	return (
 		<div className={poppins.className}>
 
@@ -31,7 +26,7 @@ export default function App({ Component, pageProps, router }) {
 			</Head>
 
 			<RecoilRoot>
-				<ReactLenis root>
+				<SmoothScrolling>
 
 					<TopMenu />
 
@@ -43,7 +38,7 @@ export default function App({ Component, pageProps, router }) {
 
 					<Footer />
 
-				</ReactLenis>
+				</SmoothScrolling>
 			</RecoilRoot>
 
 		</div>

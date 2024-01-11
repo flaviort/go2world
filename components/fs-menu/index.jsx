@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { atom, useRecoilState } from 'recoil'
 
 // import routes
-import routes from '@/config/routes'
+import routes from '@/utils/routes'
 
 // import necessary svgs
 import Icon from '@/assets/svg/icon.svg'

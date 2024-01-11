@@ -1,19 +1,125 @@
 .home {
     padding-top: 70vh;
 
+    .services {
+        margin-bottom: var(--section-space);
+
+        @media #{$mq-sm-min} {
+            padding-bottom: 4rem;
+        }
+
+        @media #{$mq-lg-min} {
+            padding-bottom: 0;
+        }
+    
+        .top {
+            .flex {
+                @media #{$mq-md-min} {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 3rem;
+                }
+    
+                h2 {
+                    @media #{$mq-md-max} {
+                        display: block;
+                        margin-bottom: 1.25rem;
+                    }
+                }
+            }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            align-items: stretch;
+            gap: 1rem;
+            padding-top: calc(var(--section-space) / 3);
+
+            @media #{$mq-sm-min} {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media #{$mq-lg-min} {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+
+            > div {
+                &:nth-child(odd) {
+                    a {
+                        @media #{$mq-sm-min} {
+                            transform: translateY(4rem);
+                        }
+
+                        @media #{$mq-lg-min} {
+                            transform: none;
+                        }
+                    }
+                }
+
+                &:nth-child(1) {
+                    display: flex;
+
+                    @media #{$mq-lg-min} {
+                        margin-top: 4rem;
+                    }
+                }
+
+                &:nth-child(2) {
+                    display: flex;
+
+                    @media #{$mq-lg-min} {
+                        margin-top: 2rem;
+                        height: calc(100% - 4rem);
+                    }
+                }
+
+                &:nth-child(3) {
+                    display: flex;
+
+                    @media #{$mq-lg-min} {
+                        height: calc(100% - 4rem);
+                    }
+                }
+
+                &:nth-child(5) {
+                    @media #{$mq-lg-min} {
+                        margin-top: -2rem;
+                    }
+                }
+
+                &:nth-child(6) {
+                    @media #{$mq-lg-min} {
+                        margin-top: -4rem;
+                    }
+                }
+            }
+        }
+    }
+
     .why {
         margin-bottom: var(--section-space);
 
         & :global {
             .row > div {
                 &:first-child {
-                    padding-right: 3rem;
+                    @media #{$mq-md-min} {
+                        padding-right: 3rem;
+                    }
                 }
 
                 &:last-child {
-                    padding-left: 1rem;
+                    @media #{$mq-md-min} {
+                        padding-left: 1rem;
+                    }
                 }
             }
+        }
+
+        h2 {
+            display: block;
+            margin-bottom: calc(var(--section-space) / 3);
         }
 
         .imageWrapper {
@@ -22,11 +128,30 @@
             width: 100%;
             height: 0;
             padding-bottom: 100%;
+
+            &.firstImage {
+                margin-top: calc(var(--section-space) / 3);
+
+                @media #{$mq-md-max} {
+                    width: 65%;
+                    padding-bottom: 65%;
+                    margin-top: calc(var(--section-space) / 2);
+                }
+            }
+
+            &.secondImage {
+                margin-bottom: calc(var(--section-space) / 3);
+
+                @media #{$mq-md-max} {
+                    width: 80%;
+                    padding-bottom: 80%;
+                    margin: -20% 0 calc(var(--section-space) / 2) 20%;
+                }
+            }
         }
 
         p {
             display: block;
-            margin: calc(var(--section-space) / 4) 0 calc(var(--section-space) / 3) 0;
         }
     }
 }

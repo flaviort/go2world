@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 // import routes
-import routes from '@/config/routes'
+import routes from '@/utils/routes'
 
 // components
 import MagneticButton from '@/components/utils/magnetic-button'

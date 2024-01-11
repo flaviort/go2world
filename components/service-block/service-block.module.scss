@@ -1,0 +1,55 @@
+.serviceBlock {
+    background-color: $pure-white;
+    border-radius: clamp(.25rem, 1vw, .5rem);
+    display: block;
+    padding: 2rem;
+    transition: .3s ease-in-out;
+
+    &:hover {
+        background-color: $blue;
+        color: $white;
+
+        .wrapper {
+            .icon {
+                color: $white;
+            }
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @media #{$mq-sm-min} {
+            gap: 1.5rem;
+        }
+
+        .icon {
+            display: flex;
+            width: 1.75rem;
+            height: 1.75rem;
+            color: $blue;
+            transition: .3s ease-in-out;
+        }
+
+        p {
+            display: block;
+            margin-top: -.5rem;
+
+            @media #{$mq-sm-min} {
+                margin-top: -1rem;
+            }
+
+            @media #{$mq-lg-min} {
+                width: 85%;
+            }
+        }
+
+        .arrow {
+            display: flex;
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+}

@@ -78,12 +78,8 @@
     font-weight: $medium;
     text-transform: uppercase;
     transition: .3s ease-in-out;
-    padding: .875rem 1.5rem;
+    padding: 1.125rem 1.5rem;
     margin: auto;
-
-    @media #{$mq-sm-min} {
-        padding: 1rem 1.5rem;
-    }
 
     @media #{$mq-xl-min} {
         padding: 1rem 2rem;
@@ -132,6 +128,16 @@
 
     &:hover {
         background-color: $blue;
+        color: $white;
+    }
+}
+
+.white-button {
+    background-color: $white;
+    color: $black;
+
+    &:hover {
+        background-color: $black;
         color: $white;
     }
 }

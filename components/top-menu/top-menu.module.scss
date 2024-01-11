@@ -28,6 +28,10 @@
                 width: 13rem;
             }
 
+            @media #{$mq-2xs-max} {
+                width: 9rem;
+            }
+
             &:hover {
                 svg {
                     path {
@@ -70,6 +74,12 @@
             .hideMob {
                 @media #{$mq-sm-max} {
                     display: none;
+                }
+            }
+
+            .blueButton {
+                @media #{$mq-sm-max} {
+                    padding: .875rem 1.5rem;
                 }
             }
 

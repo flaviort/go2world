@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 
 // import routes
-import routes from '@/config/routes'
+import routes from '@/utils/routes'
 
 // components
 import { fsMenuState } from '@/components/fs-menu'
@@ -77,7 +77,7 @@ export default function TopMenu(props) {
 						</nav>
 
 						<MagneticButton strength={50}>
-							<Link href={routes.quote} className='blue-button'>
+							<Link href={routes.quote} className={styles.blueButton + ' blue-button'}>
 								<span><span className={styles.hideMob}>Solicite uma </span>cotação</span>
 								<span className={styles.hideMob}><UxArrowRight /></span>
 							</Link>

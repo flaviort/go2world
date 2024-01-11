@@ -54,7 +54,7 @@ export default function Clients() {
 				<Swiper
 					className={styles.slider}
 					spaceBetween={10}
-					slidesPerView={3}
+					slidesPerView={2}
 					freeMode={true}
 					mousewheel={{  
 						forceToAxis: true
@@ -63,8 +63,10 @@ export default function Clients() {
 					speed={600}
 					breakpoints={{
 						575: {
+							slidesPerView: 3
+						}, 767: {
 							slidesPerView: 4
-						}, 992: {
+						},992: {
 							slidesPerView: 5
 						}, 1601: {
 							slidesPerView: 6

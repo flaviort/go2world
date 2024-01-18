@@ -71,6 +71,11 @@
             @media #{$mq-md-min} {
                 width: 45%;
             }
+
+            p {
+                display: block;
+                margin-bottom: .75rem;
+            }
         }
     }
 }

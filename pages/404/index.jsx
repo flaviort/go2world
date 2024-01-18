@@ -10,12 +10,16 @@ export default function FourOhFour() {
     return (
 		<>
 			<SEOContainer
-				title='Go2World | 404'
+				title='404'
 				description=""
 			/>
 
 			<main className={styles.fourOhFour}>
-
+				<section style={{
+					'minHeight': '80vh'
+				}}>
+					404
+				</section>
 			</main>
 		</>
     )

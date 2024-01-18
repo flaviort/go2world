@@ -40,7 +40,7 @@ export default function Clients() {
 					<div className={styles.flex}>
 
 						<h2 className='text-bigger medium'>
-							Marcas e companhias com  as quais já trabalhamos.
+							Marcas e companhias com  as quais já trabalhamos<span className='blue'>.</span>
 						</h2>
 
 						<p>

@@ -29,18 +29,26 @@
 }
 
 .text-biggest {
-	font-size: 4rem;
-	line-height: 1.275;
+	font-size: 3rem;
+	line-height: 1.075;
 
 	@media #{$mq-xs-min} {
-		font-size: 4.5rem;
+		font-size: 3.5rem;
 	}
 
 	@media #{$mq-sm-min} {
-		font-size: 5rem;
+		font-size: 4rem;
 	}
 
 	@media #{$mq-md-min} {
+		font-size: 4.5rem;
+	}
+
+	@media #{$mq-lg-min} {
+		font-size: 5rem;
+	}
+
+	@media #{$mq-xl-min} {
 		font-size: 5.5rem;
 	}
 }

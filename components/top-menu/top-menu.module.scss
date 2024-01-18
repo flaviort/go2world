@@ -10,6 +10,20 @@
         padding-top: 1.5rem;
     }
 
+    &.white {
+        color: $white;
+        
+        .flex {
+            .logo {
+                svg {
+                    path {
+                        fill: $white;
+                    }
+                }
+            }
+        }
+    }
+
     .flex {
         display: flex;
         align-items: center;

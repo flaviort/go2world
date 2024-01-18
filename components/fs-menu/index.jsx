@@ -16,7 +16,7 @@ import styles from './fs-menu.module.scss'
 
 // export fs menu state via recoil
 export const fsMenuState = atom({
-	key: 'fsMenuState',
+	key: 'fsMenuStateKey',
 	default: false
 })
 

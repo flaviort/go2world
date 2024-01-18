@@ -5,7 +5,7 @@ export default function SmoothScrolling({ children }) {
         <ReactLenis root options={{
             lerp: 0.1,
             duration: 1.5,
-            smoothTouch: true
+            smoothTouch: false
         }}>
             {children}
         </ReactLenis>

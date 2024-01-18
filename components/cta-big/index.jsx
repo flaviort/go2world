@@ -19,7 +19,7 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './cta-big.module.scss'
 
-export default function CtaBig() {
+export default function CtaBig(props) {
 
 	const container = useRef(null)
 	const blueBox = useRef(null)
@@ -40,7 +40,7 @@ export default function CtaBig() {
 	}, [])
 
 	return (
-		<section className={styles.ctaBig}>
+		<section className={styles.ctaBig + ' ' + props.className}>
 			<div className='container'>
 				<div className={styles.blueBox} ref={blueBox}>
 

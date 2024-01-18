@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import useMediaQuery from '@react-hook/media-query'
 
 // import routes / services
 import routes from '@/utils/routes'
@@ -63,11 +62,153 @@ export default function Home() {
     return (
 		<>
 			<SEOContainer
-				title='Início'
+				title='Logística global ao seu alcance.'
 				description='A Go2World conecta seu negócio ao mundo com eficiência na cadeia de suprimentos. Escolha a excelência, impulsione seu negócio!'
 			/>
 
 			<main className={styles.home}>
+
+				<section className={styles.banner}>
+
+					<div className={styles.video}>
+						<video className='cover' autoPlay playsInline muted loop>
+							<source src='/videos/banner4.mp4' />
+						</video>
+					</div>
+
+					<div className='container relative z2'>
+
+						<h1 className='text-biggest medium'>
+							Logística global <br />
+							ao seu alcance<span className='blue'>.</span>
+						</h1>
+
+						<p className={styles.desc}>
+							Conectando seu negócio ao mundo com eficiência na cadeia de suprimentos. Escolha a excelência, impulsione seu negócio!
+						</p>
+
+						<div className={styles.buttons}>
+
+							<MagneticButton>
+								<Link href={routes.quote} className='blue-button text-small'>
+									<span>Solicite uma cotação</span>
+									<UxArrowRight />
+								</Link>
+							</MagneticButton>
+
+							<MagneticButton>
+								<Link href={routes.services} className='hollow-white-button text-small'>
+									<span>Nossos serviços</span>
+								</Link>
+							</MagneticButton>
+
+						</div>
+
+						<div className={styles.blackBox}>
+
+							<p className={styles.title + ' text-bigger medium'}>
+								Números que <br />
+								contam nossa <br />
+								história<span className='blue'>.</span>
+							</p>
+
+							<div className={styles.numbers + ' medium'}>
+
+								<div className={styles.data}>
+
+									<div className={styles.big + ' text-biggest'}>
+										<p>100</p>
+										<small className='blue'>%</small>
+									</div>
+
+									<p className={styles.smallDesc}>
+										Satisfação dos <br />
+										clientes
+									</p>
+
+								</div>
+
+								<div className={styles.data}>
+
+									<div className={styles.big + ' text-biggest'}>
+										<p>57</p>
+										<small className='blue'>+</small>
+									</div>
+
+									<p className={styles.smallDesc}>
+										Clientes ao redor <br />
+										do mundo
+									</p>
+
+								</div>
+
+								<div className={styles.data}>
+
+									<div className={styles.big + ' text-biggest'}>
+										<p>5k</p>
+										<small className='blue'>+</small>
+									</div>
+
+									<p className={styles.smallDesc}>
+										Containers <br />
+										entregues
+									</p>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</section>
+
+				<section className={styles.about}>
+					<div className='container'>
+						<div className={styles.bigBox}>
+
+							<div className={styles.imageWrapper + ' ' + styles.firstImage}>
+								<ScrollingImage>
+									<Image
+										alt='Galpão com vários produtos'
+										src='/img/warehouse.jpg'
+										fill={true}
+										sizes='
+											(max-width: 767px) 100vw,
+											90vw
+										'
+									/>
+								</ScrollingImage>
+							</div>
+
+							<div className={styles.whiteBox}>
+
+								<h3 className='subtitle'>
+									Quem somos
+								</h3>
+
+								<h2 className='text-bigger medium'>
+									Somos o futuro <br />
+									da logística<span className='blue'>.</span>
+								</h2>
+
+								<p>
+									De ponta a ponta, oferecemos soluções logísticas abrangentes que transcendem fronteiras, conectando seu produto ao mundo.
+								</p>
+
+								<MagneticButton>
+									<Link href={routes.about} className='simple-button text-small'>
+										<span>Saiba mais</span>
+										<UxArrowRight />
+									</Link>
+								</MagneticButton>
+
+							</div>
+
+						</div>
+					</div>
+				</section>
 
 				<section className={styles.services}>
 					<div className='container'>
@@ -82,12 +223,13 @@ export default function Home() {
 
 								<h2 className='text-bigger medium'>
 									Conheça todos os <br />
-									nossos serviços.
+									nossos serviços<span className='blue'>.</span>
 								</h2>
 
 								<MagneticButton>
 									<Link href={routes.services} className='hollow-button text-small'>
 										<span>Nossos serviços</span>
+										<UxArrowRight />
 									</Link>
 								</MagneticButton>
 
@@ -134,7 +276,7 @@ export default function Home() {
 					</div>
 				</section>
 
-				<CtaBig />
+				<CtaBig className={styles.ctaBig} />
 
 				<section className={styles.why}>
 					<div className='container'>
@@ -147,7 +289,7 @@ export default function Home() {
 								</h3>
 
 								<h2 className='text-bigger medium'>
-									Insuperável Compromisso com a Qualidade.
+									Insuperável compromisso com a qualidade<span className='blue'>.</span>
 								</h2>
 
 								<p>

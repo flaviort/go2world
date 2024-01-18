@@ -59,6 +59,37 @@
     }
 }
 
+.simple-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    vertical-align: middle;
+    width: fit-content;
+    cursor: pointer;
+    position: relative;
+    line-height: 1;
+    white-space: nowrap;
+    font-weight: $medium;
+    text-transform: uppercase;
+    transition: .3s ease-in-out;
+
+    &:hover {
+        color: $blue;
+    }
+
+    span {
+        font-weight: $medium;
+    }
+
+    svg {
+        width: .75rem;
+        min-width: .75rem;
+        height: .75rem;
+        color: $blue;
+    }
+}
+
 .blue-button,
 .hollow-button,
 .hollow-white-button,
@@ -83,6 +114,10 @@
 
     @media #{$mq-xl-min} {
         padding: 1rem 2rem;
+    }
+
+    span {
+        font-weight: $medium;
     }
 
     svg {

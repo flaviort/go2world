@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
+import { useRouter } from 'next/router'
 
 // import routes
 import routes from '@/utils/routes'
@@ -17,7 +18,8 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './top-menu.module.scss'
 
-export default function TopMenu(props) {
+export default function TopMenu() {
+
 
 	// open fs menu
 	const [fsMenu, setFsMenu] = useRecoilState(fsMenuState)
@@ -41,8 +43,15 @@ export default function TopMenu(props) {
 		{ name: 'Contato', href: routes.contact }
 	]
 
+	const router = useRouter()
+	const whiteMenu = 
+		router.pathname === '/' ||
+		router.pathname === '/404' ||
+		router.pathname === '/servicos' ||
+		router.pathname.startsWith('/servicos/')
+
 	return (
-		<section className={styles.topMenu + ' ' + props.className}>
+		<section className={styles.topMenu + ' ' + (whiteMenu && styles.white)}>
 			<div className='container container-big'>
 				<div className={styles.flex}>
 

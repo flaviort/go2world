@@ -2,7 +2,7 @@ const routes = {
 
 	// pages
 	home: '/',
-	about: '/about',
+	about: '/sobre',
 	services: '/servicos',
 	//service: (id) => `/servicos/${id}`,
 	serviceAerialFreight: '/servicos/frete-aereo',

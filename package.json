@@ -7,9 +7,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@prismicio/client": "^7.3.1",
+    "@prismicio/next": "^1.5.0",
+    "@prismicio/react": "^2.7.3",
     "@react-hook/media-query": "^1.1.1",
     "@studio-freight/react-lenis": "^0.0.40",
     "@svgr/webpack": "6.5.1",
@@ -21,9 +25,11 @@
     "swiper": "^11.0.5"
   },
   "devDependencies": {
+    "@slicemachine/adapter-next": "^0.3.32",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "node-sass": "7.0.3",
-    "sass": "1.57.1"
+    "sass": "1.57.1",
+    "slice-machine-ui": "^1.22.2"
   }
 }

@@ -1,0 +1,48 @@
+{
+  "id": "home",
+  "label": "Home",
+  "format": "page",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "banner_title": {
+        "type": "Text",
+        "config": {
+          "label": "Banner Title",
+          "placeholder": ""
+        }
+      },
+      "banner_description": {
+        "type": "Text",
+        "config": {
+          "label": "Banner Description",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

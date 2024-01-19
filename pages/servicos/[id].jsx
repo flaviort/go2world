@@ -1,8 +1,5 @@
 import { useRouter } from 'next/router'
 
-// components
-import SEOContainer from '@/components/utils/seo-container'
-
 // utils
 import { getIconComponent, getPostDetails, getPostIdList } from '@/utils/services'
 
@@ -36,21 +33,14 @@ export default function Service({ allServices }){
 	const router = useRouter()
 	
     return (
-		<>
-			<SEOContainer
-				title={title}
-				description={smallDesc}
-			/>
+		<main className={styles.service}>
 
-			<main className={styles.service}>
+			<h2>
+				title: {title}<br />
+				desc: {smallDesc}<br />
+				icon: {getIconComponent(router.query.id)}
+			</h2>
 
-				<h2>
-					title: {title}<br />
-					desc: {smallDesc}<br />
-					icon: {getIconComponent(router.query.id)}
-				</h2>
-
-			</main>
-		</>
+		</main>
     )
 }

@@ -1,0 +1,69 @@
+.location {
+    margin-bottom: var(--section-space);
+
+    .container {
+        position: relative;
+
+        @media #{$mq-md-min} {
+            padding-top: var(--section-space);
+        }
+
+        .image {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 60vw;
+
+            @media #{$mq-md-min} {
+                height: calc(100% - var(--section-space));
+                position: absolute;
+                z-index: 0;
+                top: 0;
+                left: 15px;
+                width: calc(100% - 30px);
+            }
+        }
+
+        .blackBox {
+            position: relative;
+            z-index: 2;
+            background-color: $black;
+            color: $white;
+            width: 100%;
+            padding: calc(var(--section-space) / 1.75);
+
+            @media #{$mq-md-min} {
+                width: 75%;
+                padding: var(--section-space) var(--section-space) var(--section-space) 0;
+            }
+
+            @media #{$mq-lg-min} {
+                width: 50%;
+            }
+
+            &:before {
+                @media #{$mq-md-min} {
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    right: 0;
+                    width: 200%;
+                    height: 100%;
+                    background-color: $black;
+                }
+            }
+
+            .desc {
+                display: block;
+                margin: calc(var(--section-space) / 4) 0;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: calc(var(--section-space) / 4);
+            }
+        }
+    }
+}

@@ -1,3 +1,325 @@
-.fourOhFour {
+.about {
+    padding-top: calc(2.5rem + var(--section-space) * 1.75);
+
+    @media #{$mq-sm-min} {
+        padding-top: calc(3.5rem + var(--section-space));
+    }
+
+    .globe {
+        margin-bottom: var(--section-space);
+
+        @media #{$mq-lg-min} {
+            margin-bottom: calc(var(--section-space) * 1.25);
+        }
+
+        .top {
+            position: relative;
+            z-index: 2;
+
+            .flex {
+                padding-bottom: calc(var(--section-space) / 2);
+
+                @media #{$mq-md-min} {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    gap: 3rem;
+                    padding-bottom: calc(var(--section-space) / 4);
+                }
     
+                h1 {
+                    @media #{$mq-md-max} {
+                        display: block;
+                        margin-bottom: 1.25rem;
+                    }
+                }
+
+                p {
+                    @media #{$mq-md-min} {
+                        width: 45%;
+                    }
+                }
+            }
+
+            .buttons {
+                @media #{$mq-md-min} {
+                    display: flex;
+                    justify-content: flex-end;
+                    width: 100%;
+                }
+
+                .wrapper {
+                    display: flex;
+                    gap: .75rem;
+                    flex-wrap: wrap;
+
+                    @media #{$mq-md-min} {
+                        width: 45%;
+                        gap: .5rem;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        flex-wrap: nowrap;
+                    }
+
+                    @media #{$mq-lg-min} {
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 1rem;
+                    }
+
+                    > div {
+                        @media #{$mq-lg-min} {
+                            width: 100%!important;
+                        }
+
+                        a {
+                            @media #{$mq-lg-min} {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .image {
+            text-align: center;
+
+            @media #{$mq-md-min} {
+                margin-top: calc(var(--section-space) / 2 * -1);
+            }
+
+            img {
+                display: block;
+                margin: auto;
+            }
+        }
+
+        .numbers {
+            position: relative;
+            z-index: 2;
+
+            @media #{$mq-md-min} {
+                margin-top: calc(var(--section-space) / 2 * -1);
+            }
+
+            .col {
+                position: relative;
+                margin-bottom: calc(var(--section-space) / 2);
+                padding-bottom: calc(var(--section-space) / 2);
+
+                &:after {
+                    @media #{$mq-lg-max} {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 15px;
+                        width: calc(100% - 30px);
+                        height: 1px;
+                        background: $gray-lighter;
+                    }
+                }
+
+                &:last-child {
+                    padding-bottom: 0;
+                    margin-bottom: 0;
+
+                    &:after {
+                        content: none;
+                    }
+                }
+
+                .flex {
+                    .big {
+                        display: flex;
+                        align-items: flex-end;
+                    }
+
+                    .title {
+                        display: block;
+                        margin-top: .25rem;
+                        margin-bottom: 1rem;
+
+                        @media #{$mq-lg-min} {
+                            border-top: 1px solid $black;
+                            padding-top: calc(var(--section-space) / 4);
+                            margin-top: calc(var(--section-space) / 5);
+                            margin-bottom: calc(var(--section-space) / 4);
+                        }
+
+                        br {
+                            @media #{$mq-lg-max} {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                .smallDesc {
+                    display: block;
+                    
+                    @media #{$mq-lg-min} {
+                        width: 90%;
+                    }
+                }
+            }
+        }
+    }
+
+    .history {
+        margin-bottom: var(--section-space);
+        padding-bottom: calc(var(--section-space) / 1.25);
+
+        @media #{$mq-md-min} {
+            padding-bottom: var(--section-space);
+        }
+
+        .bg {
+            position: absolute;
+            z-index: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 85%;
+            background-color: $black;
+
+            @media #{$mq-xs-min} {
+                height: 75%;
+            }
+
+            @media #{$mq-md-min} {
+                top: 0;
+                bottom: auto;
+                width: 75%;
+                height: calc(100% - var(--section-space));
+            }
+        }
+    
+        .image {
+            position: relative;
+            overflow: hidden;
+            width: 110%;
+            height: 85vw;
+            margin-bottom: calc(var(--section-space) / 1.5);
+
+            @media #{$mq-sm-min} {
+                height: 60vw;
+            }
+
+            @media #{$mq-md-min} {
+                height: calc(100% - var(--section-space) / 1.5);
+                position: absolute;
+                z-index: 2;
+                top: calc(var(--section-space) / 1.5);
+                left: 0;
+                width: 50vw;
+                margin-bottom: 0;
+            }
+        }
+    
+        .content {
+            position: relative;
+            z-index: 1;
+            color: $white;
+
+            @media #{$mq-md-min} {
+                padding: calc(var(--section-space) * 1.25) 0 calc(var(--section-space) / 1.25) calc(50% + 3rem);
+            }
+
+            @media #{$mq-lg-min} {
+                padding-left: calc(50% + 4rem);
+            }
+
+            .desc {
+                display: block;
+                margin-top: calc(var(--section-space) / 4);
+            }
+        }
+    }
+    
+    .values {
+        margin-bottom: var(--section-space);
+
+        .top {
+            padding-bottom: calc(var(--section-space) / 2);
+
+            .flex {
+                @media #{$mq-md-min} {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                    gap: 3rem;
+                }
+    
+                h2 {
+                    @media #{$mq-md-max} {
+                        display: block;
+                        margin-bottom: 1.25rem;
+                    }
+                }
+
+                p {
+                    @media #{$mq-md-min} {
+                        width: 45%;
+                    }
+                }
+            }
+        }
+
+        .slider {
+            overflow: visible;
+
+            & :global {
+                .swiper-slide {
+                    height: auto;
+                }
+            }
+
+            .block {
+                background-color: $pure-white;
+                display: flex;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                height: 100%;
+
+                @media #{$mq-sm-min} {
+                    padding: 3rem 2rem;
+                }
+
+                @media #{$mq-lg-min} {
+                    padding: 3rem;
+                }
+
+                .icon {
+                    display: flex;
+                    width: 1.75rem;
+                    height: 1.75rem;
+                    color: $blue;
+                }
+
+                p {
+                    display: block;
+
+                    @media #{$mq-lg-min} {
+                        width: 90%;
+                    }
+                }
+
+                ul {
+                    li {
+                        display: block;
+                        position: relative;
+                        padding-left: 1rem;
+
+                        &:before {
+                            content: "\2219";
+                            position: absolute;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

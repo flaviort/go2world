@@ -1,0 +1,107 @@
+.contact {
+    .topFolder {
+        margin-bottom: var(--section-space);
+        padding-top: calc(2.5rem + var(--section-space) * 1.75);
+
+        @media #{$mq-sm-min} {
+            padding-top: calc(3.5rem + var(--section-space));
+        }
+
+        @media #{$mq-md-min} {
+            background-color: $almost-white;
+        }
+
+        &:before {
+            position: absolute;
+            z-index: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: var(--section-space);
+            background-color: $white;
+
+            @media #{$mq-md-min} {
+                content: '';
+            }
+        }
+
+        .left {
+            padding-bottom: calc(var(--section-space) / 2);
+
+            @media #{$mq-md-min} {
+                padding-bottom: var(--section-space);
+            }
+
+            .desc {
+                display: block;
+                margin: calc(var(--section-space) / 4) 0 calc(var(--section-space) / 2) 0;
+                max-width: 100%;
+
+                @media #{$mq-md-min} {
+                    width: 30rem;
+                }
+            }
+
+            ul {
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    margin-bottom: 2rem;
+
+                    .icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 4rem;
+                        min-width: 4rem;
+                        height: 4rem;
+                        background: $blue;
+                        border-radius: 50%;
+                        color: $white;
+                        padding: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        .right {
+            position: relative;
+
+            &:before {
+                
+                position: absolute;
+                top: 0;
+                left: 15px;
+                width: 50vw;
+                height: 100%;
+                background-color: $black;
+
+                @media #{$mq-md-min} {
+                    content: '';
+                }
+            }
+
+            form {
+                @media #{$mq-md-min} {
+                    padding: var(--section-space) 0 calc(var(--section-space) / 2) var(--section-space);
+                }
+
+                & :global {
+                    .dark {
+                        label {
+                            @media #{$mq-md-max} {
+                                background-color: $white;
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+
+                .noMargin {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

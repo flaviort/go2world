@@ -13,12 +13,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 // components
+import SeoContainer from '@/components/utils/seo-container'
 import MagneticButton from '@/components/utils/magnetic-button'
 import ScrollingImage from '@/components/utils/scrolling-image'
 import ServiceBlock from '@/components/service-block'
 import CtaBig from '@/components/cta-big'
 import Clients from '@/components/clients'
-import SeoContainer from '@/components/utils/seo-container'
 
 // import necessary svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'

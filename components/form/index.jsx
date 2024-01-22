@@ -10,6 +10,7 @@ export const Input = ({ id, label, type, placeholder, required, maxLength, dark 
                 <input
                     type={type}
                     id={id}
+                    name={label}
                     placeholder={placeholder}
                     className='input'
                     required={required}
@@ -32,6 +33,7 @@ export const Textarea = ({ id, label, placeholder, required, maxLength, dark }) 
             <div className='line-wrapper'>
                 <textarea
                     id={id}
+                    name={label}
                     placeholder={placeholder}
                     className='input textarea'
                     required={required}

@@ -18,7 +18,8 @@ export default function ScrollingImage ({ children }) {
             })
 
             gsap.set(children, {
-                height: '115%'
+                height: '115%',
+                display: 'block'
             })
 
             gsap.to(children, {

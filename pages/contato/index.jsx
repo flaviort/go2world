@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import { createClient } from '@/prismicio'
 
@@ -9,7 +9,7 @@ import routes from '@/utils/routes'
 // components
 import SeoContainer from '@/components/utils/seo-container'
 import MagneticButton from '@/components/utils/magnetic-button'
-import { Input, Textarea } from '@/components/form'
+import { Form, Input, Textarea } from '@/components/form'
 import Location from '@/components/location'
 import Faq from '@/components/faq'
 import Clients from '@/components/clients'
@@ -23,7 +23,6 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 import styles from './contact.module.scss'
 
 export default function Contact() {
-
     return (
 		<>
 			<SeoContainer
@@ -37,7 +36,7 @@ export default function Contact() {
 					<div className='container relative z2'>
 						<div className='row'>
 
-							<div className={styles.left + ' col-md-6'}>
+							<div className={clsx(styles.left, 'col-md-6')}>
 
 								<h3 className='subtitle'>
 									Entre em contato
@@ -107,63 +106,56 @@ export default function Contact() {
 								
 							</div>
 
-							<div className={styles.right + ' col-md-6'}>
+							<div className={clsx(styles.right, 'col-md-6')}>
 								<div className='relative z2'>
-									<form action='#' className={styles.form}>
+									<Form className={styles.form}>
 
 										<Input
-											dark={true}
+											dark
 											label='Nome'
 											type='text'
-											id='contact-name'
+											id='name'
 											placeholder='Nome completo'
-											required={true}
+											required
 											maxLength={100}
 										/>
 
 										<Input
-											dark={true}
+											dark
 											label='Email'
 											type='email'
-											id='contact-email'
+											id='email'
 											placeholder='email@email.com'
-											required={true}
+											required
 											maxLength={100}
 										/>
 
 										<Input
-											dark={true}
+											dark
 											label='Telefone'
 											type='text'
-											id='contact-phone'
+											id='phone'
 											placeholder='+00 (00) 0000-0000'
-											required={false}
-											maxLength={100}
+											maxLength={50}
 										/>
 
 										<Textarea
-											dark={true}
+											dark
 											label='Mensagem'
-											id='contact-message'
+											id='message'
 											placeholder='Digite aqui sua mensagem'
-											required={true}
+											required
 											maxLength={2000}
 										/>
 
-										<div className={styles.noMargin + ' form-line'}>
+										<MagneticButton>
+											<button type='submit' className='blue-button text-small'>
+												<span>Enviar</span>
+												<UxArrowRight />
+											</button>
+										</MagneticButton>
 
-											<input type='submit' id='send-contact' />
-
-											<MagneticButton>
-												<label htmlFor='send-contact' className='blue-button text-small'>
-													<span>Enviar</span>
-													<UxArrowRight />
-												</label>
-											</MagneticButton>
-
-										</div>
-
-									</form>
+									</Form>
 								</div>
 							</div>
 

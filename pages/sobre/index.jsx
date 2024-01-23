@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import clsx from 'clsx'
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { createClient } from '@/prismicio'
@@ -10,6 +11,7 @@ import 'swiper/css'
 
 // gsap related imports
 import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
@@ -37,7 +39,7 @@ export default function About() {
 
 	const globe = useRef(null)
 
-	useEffect(() => {
+	useGSAP(() => {
 
 		// globe animation
 		if (globe.current) {
@@ -51,6 +53,9 @@ export default function About() {
                 }
             })
         }
+	})
+
+	useEffect(() => {
 
 		// this is needed for swiper
 		register()
@@ -125,16 +130,16 @@ export default function About() {
 						<div className='container'>
 							<div className='row'>
 
-								<div className={styles.col + ' col-lg-4'}>
+								<div className={clsx(styles.col, 'col-lg-4')}>
 									
 									<div className={styles.flex}>
 
-										<div className={styles.big + ' text-biggest'}>
+										<div className={clsx(styles.big, 'text-biggest')}>
 											<Counter number={100} />
 											<small className='blue'>%</small>
 										</div>
 
-										<p className={styles.title + ' text-big medium'}>
+										<p className={clsx(styles.title, 'text-big medium')}>
 											Satisfação dos <br />
 											clientes
 										</p>
@@ -147,16 +152,16 @@ export default function About() {
 
 								</div>
 
-								<div className={styles.col + ' col-lg-4'}>
+								<div className={clsx(styles.col, 'col-lg-4')}>
 									
 									<div className={styles.flex}>
 
-										<div className={styles.big + ' text-biggest'}>
+										<div className={clsx(styles.big, 'text-biggest')}>
 											<Counter number={57} />
 											<small className='blue'>+</small>
 										</div>
 
-										<p className={styles.title + ' text-big medium'}>
+										<p className={clsx(styles.title, 'text-big medium')}>
 											Clientes ao redor <br />
 											do mundo
 										</p>
@@ -169,16 +174,16 @@ export default function About() {
 
 								</div>
 
-								<div className={styles.col + ' col-lg-4'}>
+								<div className={clsx(styles.col, 'col-lg-4')}>
 									
 									<div className={styles.flex}>
 
-										<div className={styles.big + ' text-biggest'}>
+										<div className={clsx(styles.big, 'text-biggest')}>
 											<Counter number={5000} />
 											<small className='blue'>+</small>
 										</div>
 
-										<p className={styles.title + ' text-big medium'}>
+										<p className={clsx(styles.title, 'text-big medium')}>
 											Containers <br />
 											entregues
 										</p>

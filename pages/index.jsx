@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import clsx from 'clsx'
 import { createClient } from '@/prismicio'
 
 // import routes / services
@@ -109,17 +110,17 @@ export default function Default({ settings, page }) {
 
 						<div className={styles.blackBox}>
 
-							<p className={styles.title + ' text-bigger medium'}>
+							<p className={clsx(styles.title, 'text-bigger medium')}>
 								Números que <br />
 								contam nossa <br />
 								história<span className='blue'>.</span>
 							</p>
 
-							<div className={styles.numbers + ' medium'}>
+							<div className={clsx(styles.numbers, 'medium')}>
 
 								<div className={styles.data}>
 
-									<div className={styles.big + ' text-biggest'}>
+									<div className={clsx(styles.big, 'text-biggest')}>
 										<p>100</p>
 										<small className='blue'>%</small>
 									</div>
@@ -133,7 +134,7 @@ export default function Default({ settings, page }) {
 
 								<div className={styles.data}>
 
-									<div className={styles.big + ' text-biggest'}>
+									<div className={clsx(styles.big, 'text-biggest')}>
 										<p>57</p>
 										<small className='blue'>+</small>
 									</div>
@@ -147,7 +148,7 @@ export default function Default({ settings, page }) {
 
 								<div className={styles.data}>
 
-									<div className={styles.big + ' text-biggest'}>
+									<div className={clsx(styles.big, 'text-biggest')}>
 										<p>5k</p>
 										<small className='blue'>+</small>
 									</div>
@@ -171,7 +172,7 @@ export default function Default({ settings, page }) {
 					<div className='container'>
 						<div className={styles.bigBox}>
 
-							<div className={styles.imageWrapper + ' ' + styles.firstImage}>
+							<div className={clsx(styles.imageWrapper, styles.firstImage)}>
 								<ScrollingImage>
 									<Image
 										alt='Galpão com vários produtos'
@@ -299,7 +300,7 @@ export default function Default({ settings, page }) {
 									Em um mercado de qualidade crucial, somos incontestáveis. Nossa busca incessante pela excelência redefine o frete marítimo, superando expectativas com serviço excepcional.
 								</p>
 
-								<div className={styles.imageWrapper + ' ' + styles.firstImage}>
+								<div className={clsx(styles.imageWrapper, styles.firstImage)}>
 									<ScrollingImage>
 										<Image
 											alt='Vista aérea deslumbrante: Navio cargueiro repleto de containers'
@@ -317,7 +318,7 @@ export default function Default({ settings, page }) {
 
 							<div className='col-md-6'>
 
-								<div className={styles.imageWrapper + ' ' + styles.secondImage}>
+								<div className={clsx(styles.imageWrapper, styles.secondImage)}>
 									<ScrollingImage>
 										<Image
 											alt='Operário sorridente manuseando containers'

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import clsx from 'clsx'
 import { useEffect } from 'react'
 import { atom, useRecoilState } from 'recoil'
 
@@ -64,7 +65,7 @@ export default function FsMenu(props) {
 	]
 
 	return (
-		<section className={styles.fsMenu + ' ' + (fsMenu ? styles.active : '')}>
+		<section className={clsx(styles.fsMenu, fsMenu && styles.active)}>
 			<div className={styles.wrapper}>
 
 				<div className={styles.top}>
@@ -81,7 +82,7 @@ export default function FsMenu(props) {
 					<div className={styles.right}>
 
 						<Link
-							className={styles.icon + ' ' + styles.whatsapp}
+							className={clsx(styles.icon, styles.whatsapp)}
 							href={routes.whatsappFlavia}
 							aria-label='Whatsapp'
 						>
@@ -89,7 +90,7 @@ export default function FsMenu(props) {
 						</Link>
 
 						<button
-							className={styles.icon + ' ' + styles.close}
+							className={clsx(styles.icon, styles.close)}
 							onClick={hideMenu}
 							title='Fechar Menu'
 						>
@@ -153,14 +154,6 @@ export const Services = () => {
 	// get all services
 	const allServices = getAllServices()
 	const serviceKeys = Object.keys(allServices)
-
-	const [fsMenu, setFsMenu] = useRecoilState(fsMenuState)
-
-	// close the fs menu and remove the overflow: hidden from the body tag
-	function hideMenu() {
-		setFsMenu(false)
-		document.body.classList.remove('no-scroll')
-	}
 
 	useEffect(() => {
 

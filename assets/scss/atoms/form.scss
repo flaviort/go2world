@@ -22,6 +22,12 @@
         .line-wrapper {
             .input {
                 color: $white;
+
+                &:-webkit-autofill {
+                    background: $black;
+                    box-shadow: inset 10rem 10rem $black;
+                    -webkit-text-fill-color: $white;
+                }
             }
 
             svg {

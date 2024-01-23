@@ -1,6 +1,8 @@
 import Image from 'next/image'
+import clsx from 'clsx'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
 
 // gsap related imports
 import { gsap } from 'gsap'
@@ -19,28 +21,24 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './cta-big.module.scss'
 
-export default function CtaBig(props) {
+export default function CtaBig({ className }) {
 
 	const container = useRef(null)
 	const blueBox = useRef(null)
 
-	useEffect(() => {
-        if (container.current) {
-            const item = container.current
-
-			gsap.from(item, {
-				y: 200,
-				scrollTrigger: {
-					trigger: blueBox.current,
-					end: 'bottom top',
-					scrub: 3
-				}
-			})
-        }
-	}, [])
+	useGSAP(() => {
+		gsap.from(container.current, {
+			y: 200,
+			scrollTrigger: {
+				trigger: blueBox.current,
+				end: 'bottom top',
+				scrub: 3
+			}
+		})
+	})
 
 	return (
-		<section className={styles.ctaBig + ' ' + props.className}>
+		<section className={clsx(styles.ctaBig, className)}>
 			<div className='container'>
 				<div className={styles.blueBox} ref={blueBox}>
 

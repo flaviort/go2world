@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import clsx from 'clsx'
 import Link from 'next/link'
 
 // import routes
@@ -14,7 +15,7 @@ import styles from './location.module.scss'
 export default function Location() {
 	return (
 		<section className={styles.location}>
-			<div className={styles.container + ' container'}>
+			<div className={clsx(styles.container, 'container')}>
 
 				<div className={styles.image}>
 					<ScrollingImage>

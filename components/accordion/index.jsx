@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import clsx from 'clsx'
 
 // import necessary svgs
 import UxAngleDown from '@/assets/svg/ux/angle-down.svg'
@@ -16,7 +17,7 @@ export default function Accordion({ question, answer, noMargin }) {
 	}
 
 	return (
-		<div className={styles.accordion + ' ' + (isActive ? styles.active : '') + ' ' + (noMargin ? styles.noMargin : '')}>
+		<div className={clsx(styles.accordion, isActive && styles.active, noMargin && styles.noMargin)}>
 
 			<div className={styles.question} onClick={toggle}>
 

@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 // gsap related imports
 import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
@@ -9,7 +10,7 @@ export default function ScrollingImage ({ children }) {
 
     const item = useRef(null)
 
-    useEffect(() => {
+    useGSAP(() => {
         if (item.current) {
             const children = item.current.children
 
@@ -31,7 +32,7 @@ export default function ScrollingImage ({ children }) {
                 }
             })
         }
-	}, [])
+	})
 
     return (
         <div ref={item} className='cover'>

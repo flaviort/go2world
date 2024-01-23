@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { useRouter } from 'next/router'
@@ -51,7 +52,7 @@ export default function TopMenu() {
 		router.pathname.startsWith('/servicos/')
 
 	return (
-		<section className={styles.topMenu + ' ' + (whiteMenu && styles.white)}>
+		<section className={clsx(styles.topMenu, whiteMenu && styles.white)}>
 			<div className='container container-big'>
 				<div className={styles.flex}>
 
@@ -65,7 +66,7 @@ export default function TopMenu() {
 						</Link>
 					</MagneticButton>
 
-					<div className={styles.right + ' text-small'}>
+					<div className={clsx(styles.right, 'text-small')}>
 
 						<nav className={styles.menu}>
 							<ul>
@@ -86,7 +87,7 @@ export default function TopMenu() {
 						</nav>
 
 						<MagneticButton strength={50}>
-							<Link href={routes.quote} className={styles.blueButton + ' blue-button'}>
+							<Link href={routes.quote} className={clsx(styles.blueButton, 'blue-button')}>
 								<span><span className={styles.hideMob}>Solicite uma </span>cotação</span>
 								<span className={styles.hideMob}><UxArrowRight /></span>
 							</Link>

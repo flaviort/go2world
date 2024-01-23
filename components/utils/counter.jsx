@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 // gsap related imports
 import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
@@ -9,8 +10,9 @@ export default function Counter({number}) {
 
     const item = useRef(null)
 
-    useEffect(() => {
+    useGSAP(() => {
         if (item.current) {
+            
             // animated counter
             gsap.utils.toArray(item.current).forEach(item => {
                 gsap.from(item, {
@@ -29,11 +31,11 @@ export default function Counter({number}) {
             })
 
             // format the number in US standard
-            function formatNumber(value, decimals) {
+            function formatNumber(value) {
                 return Math.floor(+value)
             }
         }
-	}, [])
+	})
 
     return (
         <div ref={item}>

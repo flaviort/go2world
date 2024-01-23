@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import clsx from 'clsx'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 
@@ -12,7 +13,7 @@ import routes from '@/utils/routes'
 
 // components
 import MagneticButton from '@/components/utils/magnetic-button'
-import { Input } from '@/components/form'
+import { Form, Input } from '@/components/form'
 
 // import necessary svgs
 import Logo from '@/assets/svg/logo.svg'
@@ -114,7 +115,7 @@ export default function Footer() {
 					<div className={styles.top}>
 						<div className='row'>
 
-							<div className={styles.left + ' col-lg-6'}>
+							<div className={clsx(styles.left, 'col-lg-6')}>
 								<div className={styles.wrapper}>
 
 									<p className={styles.text}>
@@ -122,32 +123,25 @@ export default function Footer() {
 										Inscreva-se na nossa newsletter para informações relevantes. Sem spam, apenas conteúdo valioso diretamente para você.
 									</p>
 
-									<form action='#' className={styles.form}>
+									<Form className={styles.form}>
 
 										<Input
-											dark={true}
+											dark
 											label='Email'
 											type='email'
 											id='newsletter-email'
 											placeholder='email@email.com'
-											required={true}
-											maxLength={100}
+											required
 										/>
 
 										<div className={styles.lastLine}>
 
-											<div className={styles.noMargin + ' form-line'}>
-
-												<input type='submit' id='send-newsletter' />
-
-												<MagneticButton>
-													<label htmlFor='send-newsletter' className='blue-button text-small'>
-														<span>Enviar</span>
-														<UxArrowRight />
-													</label>
-												</MagneticButton>
-
-											</div>
+											<MagneticButton>
+												<button type='submit' className='blue-button text-small'>
+													<span>Enviar</span>
+													<UxArrowRight />
+												</button>
+											</MagneticButton>
 
 											<MagneticButton>
 												<Link
@@ -163,14 +157,12 @@ export default function Footer() {
 
 										</div>
 
-									</form>
-
-									
+									</Form>
 
 								</div>
 							</div>
 
-							<div className={styles.right + ' col-lg-6'}>
+							<div className={clsx(styles.right, 'col-lg-6')}>
 								<nav className={styles.menu}>
 									{ menu.map((item, i) => (
 										<ul key={i}>

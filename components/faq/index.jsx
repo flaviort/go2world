@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import clsx from 'clsx'
 
 // svgs
 import UxAngleDown from '@/assets/svg/ux/angle-down.svg'
@@ -71,7 +72,7 @@ export const Question = ({ question, answer }) => {
 	}
 
 	return (
-		<div className={styles.item + ' ' + (isActive ? styles.active : '')}>
+		<div className={clsx(styles.item, isActive && styles.active)}>
 							
 			<div className={styles.question} onClick={toggle}>
 

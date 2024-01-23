@@ -1,0 +1,55 @@
+.quote {
+    .topFolder {
+        margin-bottom: var(--section-space);
+        padding-top: calc(2.5rem + var(--section-space) * 1.75);
+
+        @media #{$mq-sm-min} {
+            padding-top: calc(3.5rem + var(--section-space));
+        }
+
+        .flex {
+            @media #{$mq-md-min} {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                gap: 3rem;
+            }
+
+            h1 {
+                @media #{$mq-md-max} {
+                    display: block;
+                    margin-bottom: 1.25rem;
+                }
+            }
+
+            p {
+                @media #{$mq-md-min} {
+                    width: 45%;
+                }
+            }
+        }
+
+        .form {
+            margin-top: calc(var(--section-space) / 1.5);
+
+            .lastLine {
+                @media #{$mq-sm-min} {
+                    display: flex;
+                    justify-content: flex-end;
+                }
+
+                > div {
+                    @media #{$mq-sm-max} {
+                        width: 100%!important;
+                    }
+
+                    .sendButton {
+                        @media #{$mq-sm-max} {
+                            width: 100%;
+                        }   
+                    }
+                }
+            }
+        }
+    }
+}

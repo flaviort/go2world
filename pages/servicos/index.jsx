@@ -1,10 +1,8 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { createClient } from '@/prismicio'
 
 // import routes / services
-import routes from '@/utils/routes'
 import { getAllServices, getIconComponent } from '@/utils/services'
 
 // swiper related imports
@@ -14,7 +12,6 @@ import 'swiper/css'
 
 // components
 import SeoContainer from '@/components/utils/seo-container'
-import MagneticButton from '@/components/utils/magnetic-button'
 import ScrollingImage from '@/components/utils/scrolling-image'
 import ServiceBlock from '@/components/service-block'
 

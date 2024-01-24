@@ -5,7 +5,7 @@ import { CreateClient } from '@prismicio/client'
 import { getIconComponent, getPostDetails, getPostIdList } from '@/utils/services'
 
 // components
-import PageTransition from '@/components/page-transition'
+
 
 // css
 import styles from './single.module.scss'
@@ -15,7 +15,7 @@ export default function Service({ allServices }){
 	const router = useRouter()
 	
     return (
-		<PageTransition>
+		<>
 			<main className={styles.service}>
 
 				<h2>
@@ -25,7 +25,7 @@ export default function Service({ allServices }){
 				</h2>
 
 			</main>
-		</PageTransition>
+		</>
     )
 }
 

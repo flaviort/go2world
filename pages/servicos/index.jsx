@@ -10,7 +10,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 // components
-import PageTransition from '@/components/page-transition'
 import SeoContainer from '@/components/utils/seo-container'
 import ScrollingImage from '@/components/utils/scrolling-image'
 import ServiceBlock from '@/components/service-block'
@@ -53,7 +52,7 @@ export default function Services() {
 	const breakXs = windowWidth > 575
 
     return (
-		<PageTransition>
+		<>
 			<SeoContainer
 				pageTitle='Nossos serviços'
 				pageDescription='Construímos relações sólidas com transparência e integridade, assegurando aos clientes que podem contar conosco em todas as fases do processo logístico.'
@@ -154,6 +153,6 @@ export default function Services() {
 				</section>
 
 			</main>
-		</PageTransition>
+		</>
     )
 }

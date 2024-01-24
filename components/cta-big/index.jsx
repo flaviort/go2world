@@ -69,7 +69,6 @@ export default function CtaBig({ className }) {
 							<Link
 								href={routes.quote}
 								className='white-button text-small'
-								scroll={false}
 							>
 								<span>Solicite uma cotação</span>
 								<UxArrowRight />

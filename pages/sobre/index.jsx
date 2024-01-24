@@ -18,7 +18,6 @@ gsap.registerPlugin(ScrollTrigger)
 import routes from '@/utils/routes'
 
 // components
-import PageTransition from '@/components/page-transition'
 import SeoContainer from '@/components/utils/seo-container'
 import ScrollingImage from '@/components/utils/scrolling-image'
 import MagneticButton from '@/components/utils/magnetic-button'
@@ -63,7 +62,7 @@ export default function About() {
 	}, [])
 
     return (
-		<PageTransition>
+		<>
 			<SeoContainer
 				pageTitle='Somos o futuro da logística'
 				pageDescription='De ponta a ponta, a Go2World oferece soluções logísticas abrangentes que transcendem fronteiras, conectando seu produto ao mundo.'
@@ -100,7 +99,6 @@ export default function About() {
 										<Link
 											href={routes.quote}
 											className='blue-button text-small'
-											scroll={false}
 										>
 											<span>Solicite uma cotação</span>
 											<UxArrowRight />
@@ -111,7 +109,6 @@ export default function About() {
 										<Link
 											href={routes.services}
 											className='hollow-button text-small'
-											scroll={false}
 										>
 											<span>Nossos serviços</span>
 										</Link>
@@ -361,6 +358,6 @@ export default function About() {
 				<Clients />
 
 			</main>
-		</PageTransition>
+		</>
     )
 }

@@ -15,7 +15,6 @@ export default function ServiceBlock({ serviceTitle, serviceSmallDesc, serviceLi
 			<Link
 				href={serviceLink}
 				className={styles.serviceBlock}
-				scroll={false}
 			>
 				<div className={styles.wrapper}>
 

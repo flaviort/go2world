@@ -61,7 +61,6 @@ export default function TopMenu() {
 							className={styles.logo}
 							href={routes.home}
 							aria-label='Início'
-							scroll={false}
 						>
 							<Logo />
 						</Link>
@@ -78,7 +77,6 @@ export default function TopMenu() {
 												href={item.href}
 												className='hover-underline'
 												aria-label={item.name}
-												scroll={false}
 											>
 												{item.name}
 											</Link>
@@ -92,7 +90,6 @@ export default function TopMenu() {
 							<Link
 								href={routes.quote}
 								className={clsx(styles.blueButton, 'blue-button')}
-								scroll={false}
 							>
 								<span><span className={styles.hideMob}>Solicite uma </span>cotação</span>
 								<span className={styles.hideMob}><UxArrowRight /></span>

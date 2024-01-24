@@ -100,7 +100,6 @@ export default function Footer() {
 								<Link
 									href={routes.quote}
 									className='black-button text-small'
-									scroll={false}
 								>
 									<span>Solicite uma cotação</span>
 									<UxArrowRight />
@@ -184,7 +183,6 @@ export default function Footer() {
 															href={link.url}
 															className='hover-underline'
 															aria-label={link.name}
-															scroll={false}
 														>
 															{link.name}
 														</Link>
@@ -207,7 +205,6 @@ export default function Footer() {
 								href={routes.home}
 								className={styles.logo}
 								aria-label='Início'
-								scroll={false}
 							>
 								<Logo />
 							</Link>

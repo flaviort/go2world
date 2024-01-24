@@ -75,7 +75,6 @@ export default function FsMenu(props) {
 						href={routes.home}
 						onClick={hideMenu}
 						aria-label='Início'
-						scroll={false}
 					>
 						<Logo />
 					</Link>
@@ -114,7 +113,6 @@ export default function FsMenu(props) {
 									href={item.href}
 									onClick={hideMenu}
 									aria-label={item.name}
-									scroll={false}
 								>
 									{item.name}
 								</Link>

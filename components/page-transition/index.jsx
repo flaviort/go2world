@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion'
-
 // css
 import styles from './page-transition.module.scss'
 
@@ -63,14 +61,14 @@ export default function PageTransition({ children }) {
         <>
             <div className={styles.pageTransition}>
                 {Array(nOfColumns).fill().map((_, i) => (
-                    <motion.div
+                    <div
                         {...anim(expand, nOfColumns - i)}
                         key={i}
                     />
                 ))}
             </div>
 
-            <motion.div
+            <div
                 {...anim(overlay)}
                 className={styles.bg}
                 key='bg'

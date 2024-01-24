@@ -1,54 +1,79 @@
-import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import clsx from 'clsx'
 import gsap from 'gsap'
 
 // css
 import styles from './page-transition.module.scss'
 
-export default function PageTransition({ children }) {
+export const PageTransitionAnimation = ({ href }) => {
 
-    const bg = useRef(null)
-    const router = useRouter()
-    const nOfColumns = 5
+    const router = useRouter();
+    const [hasAnimated, setHasAnimated] = useState(false);
 
     useEffect(() => {
-        const handleRouteChange = () => {
+        const animationWrapper = document.getElementById('page-transition');
+    
+        if (animationWrapper && !hasAnimated) {
 
-            const tl = gsap.timeline()
+            const pageOut = gsap.timeline();
+            const pageIn = gsap.timeline({ paused: true });
 
-            tl.to('.column', {
+            // page OUT animation
+            pageOut.to('#page-transition', {
+                pointerEvents: 'all',
+                duration: 0
+            })
+
+            pageOut.to('#page-transition .column', {
                 yPercent: -100,
                 stagger: -.1,
                 onComplete: () => {
-                    window.scrollTo({ top: 0 })
+                    router.push(href); // navigate to the next page
+
+                    // wait for the route change to happen before doing something
+                    router.events.on('routeChangeComplete', () => {
+                        window.scrollTo({ top: 0 }); // always scroll to the top of the page
+                        pageIn.play(); // play the animation in
+                    })
                 }
             })
 
-            tl.to(bg.current, {
+            pageOut.to('#page-transition .bg', {
                 opacity: 1,
                 duration: .5
             }, '=-.5')
 
-            tl.to('.column', {
+            // page IN animation
+            pageIn.to('#page-transition .column', {
                 yPercent: 0,
-                stagger: -.1
+                stagger: -.1,
+                onComplete: () => {
+                    setHasAnimated(true);           // restart the animation
+                }
             })
 
-            tl.to(bg.current, {
+            pageIn.to('#page-transition .bg', {
                 opacity: 0,
                 duration: .5
             }, '=-.75')
-        }
 
-        router.events.on('beforeHistoryChange', handleRouteChange)
+            pageIn.to('#page-transition', {
+                pointerEvents: 'none',
+                duration: 0
+            })
 
-        return () => {
-            router.events.off('beforeHistoryChange', handleRouteChange)
         }
-    }, [router])
+    }, [href, router, hasAnimated]);
+    
+    return null
+}
+
+export default function PageTransition() {
+    const nOfColumns = 5
 
     return (
-        <>
+        <div id='page-transition'>
 
             <div className={styles.pageTransition}>
                 {Array(nOfColumns).fill().map((_, i) => (
@@ -56,10 +81,8 @@ export default function PageTransition({ children }) {
                 ))}
             </div>
 
-            <div className={styles.bg} ref={bg} />
+            <div className={clsx(styles.bg, 'bg')} />
 
-            {children}
-
-        </>
+        </div>
     )
 }

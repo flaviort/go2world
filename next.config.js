@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-	reactStrictMode: true,
+	//reactStrictMode: true,
 	output: 'export',
   	env: {
 		// @see https://github.com/facebookexperimental/Recoil/issues/2135#issuecomment-1362197710

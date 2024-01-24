@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 // components
+import AnimatedLink from '@/components/utils/animated-link'
 import ServiceBlock from '@/components/service-block'
 
 // import necessary svgs
@@ -70,20 +71,21 @@ export default function FsMenu(props) {
 
 				<div className={styles.top}>
 
-					<Link
+					<AnimatedLink
 						className={styles.logo}
 						href={routes.home}
 						onClick={hideMenu}
 						aria-label='Início'
 					>
 						<Logo />
-					</Link>
+					</AnimatedLink>
 
 					<div className={styles.right}>
 
 						<Link
 							className={clsx(styles.icon, styles.whatsapp)}
 							href={routes.whatsappFlavia}
+							target='_blank'
 							aria-label='Whatsapp'
 						>
 							<SocialWhatsapp />
@@ -109,13 +111,13 @@ export default function FsMenu(props) {
 						
 						{menu.map((item, i) => (
 							<li key={i}>
-								<Link
+								<AnimatedLink
 									href={item.href}
 									onClick={hideMenu}
 									aria-label={item.name}
 								>
 									{item.name}
-								</Link>
+								</AnimatedLink>
 							</li>
 						))}
 					</ul>
@@ -130,6 +132,7 @@ export default function FsMenu(props) {
 
 					<Link
 						href={routes.instagram}
+						target='_blank'
 						aria-label='Instagram'
 					>
 						<SocialInstagram />

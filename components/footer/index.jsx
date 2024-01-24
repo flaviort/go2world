@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
 import routes from '@/utils/routes'
 
 // components
+import AnimatedLink from '@/components/utils/animated-link'
 import MagneticButton from '@/components/utils/magnetic-button'
 import { Form, Input } from '@/components/form'
 
@@ -97,14 +98,13 @@ export default function Footer() {
 							</h2>
 
 							<MagneticButton>
-								<Link
+								<AnimatedLink
 									href={routes.quote}
 									className='black-button text-small'
-									scroll={false}
 								>
 									<span>Solicite uma cotação</span>
 									<UxArrowRight />
-								</Link>
+								</AnimatedLink>
 							</MagneticButton>
 
 						</div>
@@ -180,14 +180,13 @@ export default function Footer() {
 											{item.links.map((link, i) => (
 												<li key={i}>
 													<MagneticButton>
-														<Link
+														<AnimatedLink
 															href={link.url}
 															className='hover-underline'
 															aria-label={link.name}
-															scroll={false}
 														>
 															{link.name}
-														</Link>
+														</AnimatedLink>
 													</MagneticButton>
 												</li>
 											))}
@@ -203,13 +202,13 @@ export default function Footer() {
 					<div className={styles.bottom}>
 
 						<MagneticButton>
-							<Link
+							<AnimatedLink
 								href={routes.home}
 								className={styles.logo}
 								aria-label='Início'
 							>
 								<Logo />
-							</Link>
+							</AnimatedLink>
 						</MagneticButton>
 
 						<p className='text-small'>

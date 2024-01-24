@@ -20,15 +20,15 @@ export default function App({ Component, pageProps, router }) {
 		<div className={poppins.className}>
 			<RecoilRoot>
 
+				<PageTransition />
+
 				<FsMenu />
+
+				<TopMenu />
 
 				<SmoothScrolling>
 
-					<TopMenu />
-
-					<PageTransition>
-						<Component key={router.route} {...pageProps} />
-					</PageTransition>
+					<Component key={router.route} {...pageProps} />
 
 					<Footer />
 

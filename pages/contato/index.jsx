@@ -60,13 +60,21 @@ export default function Contact() {
 											Email
 
 											<MagneticButton>
-												<Link href={'mailto:' + routes.emailLuis} className='hover-underline'>
+												<Link
+													href={'mailto:' + routes.emailLuis}
+													target='_blank'
+													className='hover-underline'
+												>
 													<b>{routes.emailLuis}</b>
 												</Link>
 											</MagneticButton>
 
 											<MagneticButton>
-												<Link href={'mailto:' + routes.emailFlavia} className='hover-underline'>
+												<Link
+													href={'mailto:' + routes.emailFlavia}
+													target='_blank'
+													className='hover-underline'
+												>
 													<b>{routes.emailFlavia}</b>
 												</Link>
 											</MagneticButton>
@@ -85,13 +93,21 @@ export default function Contact() {
 											Telefone
 
 											<MagneticButton>
-												<Link href={routes.whatsappLuis} target='_blank' className='hover-underline'>
+												<Link
+													href={routes.whatsappLuis}
+													target='_blank'
+													className='hover-underline'
+												>
 													<b>{routes.phoneLuis}</b>
 												</Link>
 											</MagneticButton>
 
 											<MagneticButton>
-												<Link href={routes.whatsappFlavia} target='_blank' className='hover-underline'>
+												<Link
+													href={routes.whatsappFlavia}
+													target='_blank'
+													className='hover-underline'
+												>
 													<b>{routes.phoneFlavia}</b>
 												</Link>
 											</MagneticButton>

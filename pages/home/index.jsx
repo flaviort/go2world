@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 
@@ -13,6 +12,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 // components
+import AnimatedLink from '@/components/utils/animated-link'
 import SeoContainer from '@/components/utils/seo-container'
 import MagneticButton from '@/components/utils/magnetic-button'
 import ScrollingImage from '@/components/utils/scrolling-image'
@@ -91,16 +91,16 @@ export default function Home() {
 						<div className={styles.buttons}>
 
 							<MagneticButton>
-								<Link href={routes.quote} className='blue-button text-small'>
+								<AnimatedLink href={routes.quote} className='blue-button text-small'>
 									<span>Solicite uma cotação</span>
 									<UxArrowRight />
-								</Link>
+								</AnimatedLink>
 							</MagneticButton>
 
 							<MagneticButton>
-								<Link href={routes.services} className='hollow-white-button text-small'>
+								<AnimatedLink href={routes.services} className='hollow-white-button text-small'>
 									<span>Nossos serviços</span>
-								</Link>
+								</AnimatedLink>
 							</MagneticButton>
 
 						</div>
@@ -199,10 +199,10 @@ export default function Home() {
 								</p>
 
 								<MagneticButton>
-									<Link href={routes.about} className='simple-button text-small'>
+									<AnimatedLink href={routes.about} className='simple-button text-small'>
 										<span>Saiba mais</span>
 										<UxArrowRight />
-									</Link>
+									</AnimatedLink>
 								</MagneticButton>
 
 							</div>
@@ -228,10 +228,10 @@ export default function Home() {
 								</h2>
 
 								<MagneticButton>
-									<Link href={routes.services} className='hollow-button text-small'>
+									<AnimatedLink href={routes.services} className='hollow-button text-small'>
 										<span>Nossos serviços</span>
 										<UxArrowRight />
-									</Link>
+									</AnimatedLink>
 								</MagneticButton>
 
 							</div>

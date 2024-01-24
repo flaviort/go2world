@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import AnimatedLink from '@/components/utils/animated-link'
 
 // css
 import styles from './404.module.scss'

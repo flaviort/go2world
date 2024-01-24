@@ -1,7 +1,6 @@
-import Link from 'next/link'
-
 // components
 import MagneticButton from '@/components/utils/magnetic-button'
+import AnimatedLink from '@/components/utils/animated-link'
 
 // import necessary svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
@@ -12,7 +11,7 @@ import styles from './service-block.module.scss'
 export default function ServiceBlock({ serviceTitle, serviceSmallDesc, serviceLink, serviceIcon }) {
 	return (
 		<MagneticButton>
-			<Link
+			<AnimatedLink
 				href={serviceLink}
 				className={styles.serviceBlock}
 			>
@@ -35,7 +34,7 @@ export default function ServiceBlock({ serviceTitle, serviceSmallDesc, serviceLi
 					</div>
 					
 				</div>
-			</Link>
+			</AnimatedLink>
 		</MagneticButton>
 	)
 }

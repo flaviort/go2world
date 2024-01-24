@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import clsx from 'clsx'
-import Link from 'next/link'
 import { useRef } from 'react'
-import { useGSAP } from '@gsap/react'
 
 // gsap related imports
 import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
@@ -13,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger)
 import routes from '@/utils/routes'
 
 // components
+import AnimatedLink from '@/components/utils/animated-link'
 import MagneticButton from '@/components/utils/magnetic-button'
 
 // import necessary svgs
@@ -66,13 +66,13 @@ export default function CtaBig({ className }) {
 						</p>
 
 						<MagneticButton>
-							<Link
+							<AnimatedLink
 								href={routes.quote}
 								className='white-button text-small'
 							>
 								<span>Solicite uma cotação</span>
 								<UxArrowRight />
-							</Link>
+							</AnimatedLink>
 						</MagneticButton>
 
 					</div>

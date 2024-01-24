@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import clsx from 'clsx'
 import { useEffect, useRef } from 'react'
-import Link from 'next/link'
 
 // swiper related imports
 import { register } from 'swiper/element/bundle'
@@ -18,6 +17,7 @@ gsap.registerPlugin(ScrollTrigger)
 import routes from '@/utils/routes'
 
 // components
+import AnimatedLink from '@/components/utils/animated-link'
 import SeoContainer from '@/components/utils/seo-container'
 import ScrollingImage from '@/components/utils/scrolling-image'
 import MagneticButton from '@/components/utils/magnetic-button'
@@ -96,22 +96,22 @@ export default function About() {
 								<div className={styles.wrapper}>
 
 									<MagneticButton>
-										<Link
+										<AnimatedLink
 											href={routes.quote}
 											className='blue-button text-small'
 										>
 											<span>Solicite uma cotação</span>
 											<UxArrowRight />
-										</Link>
+										</AnimatedLink>
 									</MagneticButton>
 
 									<MagneticButton>
-										<Link
+										<AnimatedLink
 											href={routes.services}
 											className='hollow-button text-small'
 										>
 											<span>Nossos serviços</span>
-										</Link>
+										</AnimatedLink>
 									</MagneticButton>
 
 								</div>

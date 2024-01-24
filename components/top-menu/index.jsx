@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
@@ -9,6 +8,7 @@ import routes from '@/utils/routes'
 
 // components
 import { fsMenuState } from '@/components/fs-menu'
+import AnimatedLink from '@/components/utils/animated-link'
 import MagneticButton from '@/components/utils/magnetic-button'
 
 // import necessary svgs
@@ -56,13 +56,13 @@ export default function TopMenu() {
 				<div className={styles.flex}>
 
 					<MagneticButton>
-						<Link
+						<AnimatedLink
 							className={styles.logo}
 							href={routes.home}
 							aria-label='Início'
 						>
 							<Logo />
-						</Link>
+						</AnimatedLink>
 					</MagneticButton>
 
 					<div className={clsx(styles.right, 'text-small')}>
@@ -72,13 +72,13 @@ export default function TopMenu() {
 								{topMenu.map((item, i) => (
 									<li key={i}>
 										<MagneticButton strength={25}>
-											<Link
+											<AnimatedLink
 												href={item.href}
 												className='hover-underline'
 												aria-label={item.name}
 											>
 												{item.name}
-											</Link>
+											</AnimatedLink>
 										</MagneticButton>
 									</li>
 								))}
@@ -86,13 +86,13 @@ export default function TopMenu() {
 						</nav>
 
 						<MagneticButton strength={50}>
-							<Link
+							<AnimatedLink
 								href={routes.quote}
 								className={clsx(styles.blueButton, 'blue-button')}
 							>
 								<span><span className={styles.hideMob}>Solicite uma </span>cotação</span>
 								<span className={styles.hideMob}><UxArrowRight /></span>
-							</Link>
+							</AnimatedLink>
 						</MagneticButton>
 
 						<button

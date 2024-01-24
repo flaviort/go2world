@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
-import { createClient } from '@/prismicio'
 
 // import routes / services
 import routes from '@/utils/routes'
@@ -14,6 +13,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 // components
+import PageTransition from '@/components/page-transition'
 import SeoContainer from '@/components/utils/seo-container'
 import MagneticButton from '@/components/utils/magnetic-button'
 import ScrollingImage from '@/components/utils/scrolling-image'
@@ -27,7 +27,7 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './home.module.scss'
 
-export default function Default({ settings, page }) {
+export default function Default() {
 
 	// get all services
 	const allServices = getAllServices()
@@ -37,8 +37,6 @@ export default function Default({ settings, page }) {
 	const [windowWidth, setWindowWidth] = useState(0)
 
 	useEffect(() => {
-
-		//console.log(settings, page)
 
 		// this is needed for swiper
 		register()
@@ -64,11 +62,11 @@ export default function Default({ settings, page }) {
 	const breakXs = windowWidth > 575
 
     return (
-		<>
+		<PageTransition>
 
 			<SeoContainer
-				pageTitle={page.data.meta_title}
-				pageDescription={page.data.meta_description}
+				pageTitle='Logística global ao seu alcance.'
+				pageDescription='Conectando seu negócio ao mundo com eficiência na cadeia de suprimentos. Escolha a excelência, impulsione seu negócio!'
 			/>
 
 			<main className={styles.home}>
@@ -84,24 +82,32 @@ export default function Default({ settings, page }) {
 					<div className='container relative z2'>
 
 						<h1 className='text-biggest medium'>
-							{page.data.banner_title}<span className='blue'>.</span>
+							Logística global ao seu alcance<span className='blue'>.</span>
 						</h1>
 
 						<p className={styles.desc}>
-							{page.data.banner_description}
+							Conectando seu negócio ao mundo com eficiência na cadeia de suprimentos. Escolha a excelência, impulsione seu negócio!
 						</p>
 
 						<div className={styles.buttons}>
 
 							<MagneticButton>
-								<Link href={routes.quote} className='blue-button text-small'>
+								<Link
+									href={routes.quote}
+									className='blue-button text-small'
+									scroll={false}
+								>
 									<span>Solicite uma cotação</span>
 									<UxArrowRight />
 								</Link>
 							</MagneticButton>
 
 							<MagneticButton>
-								<Link href={routes.services} className='hollow-white-button text-small'>
+								<Link
+									href={routes.services}
+									className='hollow-white-button text-small'
+									scroll={false}
+								>
 									<span>Nossos serviços</span>
 								</Link>
 							</MagneticButton>
@@ -202,7 +208,11 @@ export default function Default({ settings, page }) {
 								</p>
 
 								<MagneticButton>
-									<Link href={routes.about} className='simple-button text-small'>
+									<Link
+										href={routes.about}
+										className='simple-button text-small'
+										scroll={false}
+									>
 										<span>Saiba mais</span>
 										<UxArrowRight />
 									</Link>
@@ -231,7 +241,11 @@ export default function Default({ settings, page }) {
 								</h2>
 
 								<MagneticButton>
-									<Link href={routes.services} className='hollow-button text-small'>
+									<Link
+										href={routes.services}
+										className='hollow-button text-small'
+										scroll={false}
+									>
 										<span>Nossos serviços</span>
 										<UxArrowRight />
 									</Link>
@@ -345,19 +359,6 @@ export default function Default({ settings, page }) {
 				<Clients />
 
 			</main>
-		</>
+		</PageTransition>
     )
-}
-
-export async function getStaticProps({ previewData }) {
-    const client = createClient({ previewData })
-    const settings = await client.getSingle('settings')
-	const page = await client.getSingle('home')
-
-    return {
-        props: {
-			settings,
-			page
-		}
-    }
 }

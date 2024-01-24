@@ -97,7 +97,11 @@ export default function Footer() {
 							</h2>
 
 							<MagneticButton>
-								<Link href={routes.quote} className='black-button text-small'>
+								<Link
+									href={routes.quote}
+									className='black-button text-small'
+									scroll={false}
+								>
 									<span>Solicite uma cotação</span>
 									<UxArrowRight />
 								</Link>
@@ -180,6 +184,7 @@ export default function Footer() {
 															href={link.url}
 															className='hover-underline'
 															aria-label={link.name}
+															scroll={false}
 														>
 															{link.name}
 														</Link>
@@ -198,7 +203,12 @@ export default function Footer() {
 					<div className={styles.bottom}>
 
 						<MagneticButton>
-							<Link href={routes.home} className={styles.logo} aria-label='Início'>
+							<Link
+								href={routes.home}
+								className={styles.logo}
+								aria-label='Início'
+								scroll={false}
+							>
 								<Logo />
 							</Link>
 						</MagneticButton>

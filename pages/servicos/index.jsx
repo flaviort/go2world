@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { createClient } from '@/prismicio'
 
 // import routes / services
 import { getAllServices, getIconComponent } from '@/utils/services'
@@ -11,6 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 // components
+import PageTransition from '@/components/page-transition'
 import SeoContainer from '@/components/utils/seo-container'
 import ScrollingImage from '@/components/utils/scrolling-image'
 import ServiceBlock from '@/components/service-block'
@@ -53,7 +53,7 @@ export default function Services() {
 	const breakXs = windowWidth > 575
 
     return (
-		<>
+		<PageTransition>
 			<SeoContainer
 				pageTitle='Nossos serviços'
 				pageDescription='Construímos relações sólidas com transparência e integridade, assegurando aos clientes que podem contar conosco em todas as fases do processo logístico.'
@@ -154,21 +154,6 @@ export default function Services() {
 				</section>
 
 			</main>
-		</>
+		</PageTransition>
     )
 }
-
-/*
-export async function getStaticProps({ previewData }) {
-    const client = createClient({ previewData })
-    const settings = await client.getSingle('settings')
-	const page = await client.getSingle('services')
-
-    return {
-        props: {
-			settings,
-			page
-		}
-    }
-}
-*/

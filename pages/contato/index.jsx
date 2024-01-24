@@ -1,12 +1,11 @@
 import Link from 'next/link'
 import clsx from 'clsx'
-import { useEffect, useState } from 'react'
-import { createClient } from '@/prismicio'
 
 // import routes / services
 import routes from '@/utils/routes'
 
 // components
+import PageTransition from '@/components/page-transition'
 import SeoContainer from '@/components/utils/seo-container'
 import MagneticButton from '@/components/utils/magnetic-button'
 import { Form, Input, Textarea } from '@/components/form'
@@ -24,7 +23,7 @@ import styles from './contact.module.scss'
 
 export default function Contact() {
     return (
-		<>
+		<PageTransition>
 			<SeoContainer
 				pageTitle='Entre em contato'
 				pageDescription='Entre em contato conosco para obter soluções personalizadas e eficientes. Estamos prontos para tornar sua experiência logística mais simples e confiável.'
@@ -170,21 +169,6 @@ export default function Contact() {
 				<Clients />
 
 			</main>
-		</>
+		</PageTransition>
     )
 }
-
-/*
-export async function getStaticProps({ previewData }) {
-    const client = createClient({ previewData })
-    const settings = await client.getSingle('settings')
-	const page = await client.getSingle('services')
-
-    return {
-        props: {
-			settings,
-			page
-		}
-    }
-}
-*/

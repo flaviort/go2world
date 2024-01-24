@@ -12,7 +12,11 @@ import styles from './service-block.module.scss'
 export default function ServiceBlock({ serviceTitle, serviceSmallDesc, serviceLink, serviceIcon }) {
 	return (
 		<MagneticButton>
-			<Link href={serviceLink} className={styles.serviceBlock}>
+			<Link
+				href={serviceLink}
+				className={styles.serviceBlock}
+				scroll={false}
+			>
 				<div className={styles.wrapper}>
 
 					<div className={styles.icon}>

@@ -1,24 +1,16 @@
 {
-  "id": "home",
-  "label": "Home",
+  "id": "service",
+  "label": "Service",
   "format": "page",
-  "repeatable": false,
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
-      "banner_title": {
-        "type": "Text",
+      "uid": {
         "config": {
-          "label": "Banner Title",
-          "placeholder": ""
-        }
-      },
-      "banner_description": {
-        "type": "Text",
-        "config": {
-          "label": "Banner Description",
-          "placeholder": ""
-        }
+          "label": "UID"
+        },
+        "type": "UID"
       },
       "slices": {
         "type": "Slices",
@@ -35,6 +27,17 @@
           "placeholder": "A brief summary of the page"
         },
         "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
       },
       "meta_title": {
         "config": {

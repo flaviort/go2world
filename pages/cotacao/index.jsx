@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
-import { createClient } from '@/prismicio'
 import clsx from 'clsx'
 
 // components
+import PageTransition from '@/components/page-transition'
 import SeoContainer from '@/components/utils/seo-container'
 import MagneticButton from '@/components/utils/magnetic-button'
 import { Form, Input, Textarea } from '@/components/form'
@@ -18,7 +17,7 @@ import styles from './quote.module.scss'
 export default function Quote() {
 
     return (
-		<>
+		<PageTransition>
 			<SeoContainer
 				pageTitle='Solicite uma cotação'
 				pageDescription='Simples, rápido e eficiente. Preencha nosso formulário e receba uma proposta de orçamento.'
@@ -197,21 +196,6 @@ export default function Quote() {
 				<Clients />
 
 			</main>
-		</>
+		</PageTransition>
     )
 }
-
-/*
-export async function getStaticProps({ previewData }) {
-    const client = createClient({ previewData })
-    const settings = await client.getSingle('settings')
-	const page = await client.getSingle('services')
-
-    return {
-        props: {
-			settings,
-			page
-		}
-    }
-}
-*/

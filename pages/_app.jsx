@@ -1,5 +1,6 @@
 import { RecoilRoot } from 'recoil'
 import SmoothScrolling from '@/components/utils/smooth-scrolling'
+import { AnimatePresence } from 'framer-motion'
 
 // components
 import TopMenu from '@/components/top-menu'
@@ -12,25 +13,37 @@ import '@/assets/css/bootstrap-grid.css'
 import '@/assets/scss/main.scss'
 
 // google fonts
-import { poppins } from '../assets/fonts/index'
+import { poppins } from '@/assets/fonts/index'
 
 export default function App({ Component, pageProps, router }) {
 	return (
 		<div className={poppins.className}>
 			<RecoilRoot>
+
+				<FsMenu />
+
 				<SmoothScrolling>
 
 					<TopMenu />
 
-					<FsMenu />
+					<AnimatePresence
+						mode='wait'
+						initial={false}
+						onExitComplete={() => {
+							if (typeof window !== 'undefined') {
+							  	window.scrollTo({ top: 0 })
+							}
+						}}
+					>
+						
+						<Component key={router.route} {...pageProps} />
 
-					<div key={router.route}>
-						<Component {...pageProps} />
-					</div>
+					</AnimatePresence>
 
 					<Footer />
 
 				</SmoothScrolling>
+
 			</RecoilRoot>
 		</div>
 	)

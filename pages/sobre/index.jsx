@@ -2,7 +2,6 @@ import Image from 'next/image'
 import clsx from 'clsx'
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { createClient } from '@/prismicio'
 
 // swiper related imports
 import { register } from 'swiper/element/bundle'
@@ -19,6 +18,7 @@ gsap.registerPlugin(ScrollTrigger)
 import routes from '@/utils/routes'
 
 // components
+import PageTransition from '@/components/page-transition'
 import SeoContainer from '@/components/utils/seo-container'
 import ScrollingImage from '@/components/utils/scrolling-image'
 import MagneticButton from '@/components/utils/magnetic-button'
@@ -63,7 +63,7 @@ export default function About() {
 	}, [])
 
     return (
-		<>
+		<PageTransition>
 			<SeoContainer
 				pageTitle='Somos o futuro da logística'
 				pageDescription='De ponta a ponta, a Go2World oferece soluções logísticas abrangentes que transcendem fronteiras, conectando seu produto ao mundo.'
@@ -97,14 +97,22 @@ export default function About() {
 								<div className={styles.wrapper}>
 
 									<MagneticButton>
-										<Link href={routes.quote} className='blue-button text-small'>
+										<Link
+											href={routes.quote}
+											className='blue-button text-small'
+											scroll={false}
+										>
 											<span>Solicite uma cotação</span>
 											<UxArrowRight />
 										</Link>
 									</MagneticButton>
 
 									<MagneticButton>
-										<Link href={routes.services} className='hollow-button text-small'>
+										<Link
+											href={routes.services}
+											className='hollow-button text-small'
+											scroll={false}
+										>
 											<span>Nossos serviços</span>
 										</Link>
 									</MagneticButton>
@@ -353,19 +361,6 @@ export default function About() {
 				<Clients />
 
 			</main>
-		</>
+		</PageTransition>
     )
-}
-
-export async function getStaticProps({ previewData }) {
-    const client = createClient({ previewData })
-    const settings = await client.getSingle('settings')
-	const page = await client.getSingle('about')
-
-    return {
-        props: {
-			settings,
-			page
-		}
-    }
 }

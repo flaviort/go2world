@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 // components
-import PageTransition from '@/components/utils/page-transition'
+import PageTransition from '@/components/page-transition'
 
 // css
 import styles from './404.module.scss'

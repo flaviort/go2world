@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type ServiceDocumentDataSlicesSlice = never;
+type ServiceDocumentDataSlicesSlice = MainTextSlice;
 
 /**
  * Content for Service documents
@@ -71,6 +71,51 @@ export type ServiceDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = ServiceDocument;
 
+/**
+ * Primary content in *MainText → Primary*
+ */
+export interface MainTextSliceDefaultPrimary {
+  /**
+   * text field in *MainText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for MainText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MainTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MainTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MainText*
+ */
+type MainTextSliceVariation = MainTextSliceDefault;
+
+/**
+ * MainText Shared Slice
+ *
+ * - **API ID**: `main_text`
+ * - **Description**: MainText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MainTextSlice = prismic.SharedSlice<
+  "main_text",
+  MainTextSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -85,6 +130,10 @@ declare module "@prismicio/client" {
       ServiceDocumentData,
       ServiceDocumentDataSlicesSlice,
       AllDocumentTypes,
+      MainTextSlice,
+      MainTextSliceDefaultPrimary,
+      MainTextSliceVariation,
+      MainTextSliceDefault,
     };
   }
 }

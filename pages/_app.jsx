@@ -2,6 +2,7 @@ import { RecoilRoot } from 'recoil'
 import SmoothScrolling from '@/components/utils/smooth-scrolling'
 
 // components
+import PageTransition from '@/components/page-transition'
 import TopMenu from '@/components/top-menu'
 import FsMenu from '@/components/fs-menu'
 import Footer from '@/components/footer'
@@ -24,8 +25,10 @@ export default function App({ Component, pageProps, router }) {
 				<SmoothScrolling>
 
 					<TopMenu />
-						
-					<Component key={router.route} {...pageProps} />
+
+					<PageTransition>
+						<Component key={router.route} {...pageProps} />
+					</PageTransition>
 
 					<Footer />
 

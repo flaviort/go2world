@@ -1,78 +1,62 @@
+import { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router';
+import gsap from 'gsap'
+
 // css
 import styles from './page-transition.module.scss'
 
 export default function PageTransition({ children }) {
 
-    const anim = (variants, custom) => {
-        return {
-            initial: 'initial',
-            animate: 'enter',
-            exit: 'exit',
-            variants,
-            custom
-        }
-    }
-
-    const expand = {
-        initial: {
-            top: 0
-        },
-        enter: (i) => ({
-            top: '100%',
-            transition: {
-                duration: .4,
-                delay: .05 * i
-            },
-            transitionEnd: {
-                height: 0,
-                top: 0
-            }
-        }),
-        exit: (i) => ({
-            height: '100%',
-            transition: {
-                duration: .4,
-                delay: .05 * i
-            }
-        })
-    }
-
-    const overlay = {
-        initial: {
-            opacity: 1,
-            transition: {
-                duration: .5
-            }
-        },
-        enter: {
-            opacity: 0
-        },
-        exit: {
-            opacity: 1,
-            transition: {
-                duration: .75
-            }
-        }
-    }
-
+    const bg = useRef(null)
+    const router = useRouter()
     const nOfColumns = 5
+
+    useEffect(() => {
+        const handleRouteChange = () => {
+
+            const tl = gsap.timeline()
+
+            tl.to('.column', {
+                yPercent: -100,
+                stagger: -.1,
+                onComplete: () => {
+                    window.scrollTo({ top: 0 })
+                }
+            })
+
+            tl.to(bg.current, {
+                opacity: 1,
+                duration: .5
+            }, '=-.5')
+
+            tl.to('.column', {
+                yPercent: 0,
+                stagger: -.1
+            })
+
+            tl.to(bg.current, {
+                opacity: 0,
+                duration: .5
+            }, '=-.75')
+        }
+
+        router.events.on('beforeHistoryChange', handleRouteChange)
+
+        return () => {
+            router.events.off('beforeHistoryChange', handleRouteChange)
+        }
+    }, [router])
 
     return (
         <>
+
             <div className={styles.pageTransition}>
                 {Array(nOfColumns).fill().map((_, i) => (
-                    <div
-                        {...anim(expand, nOfColumns - i)}
-                        key={i}
-                    />
+                    <div className='column' key={i} />
                 ))}
             </div>
 
-            <div
-                {...anim(overlay)}
-                className={styles.bg}
-                key='bg'
-            />
+            <div className={styles.bg} ref={bg} />
 
             {children}
 

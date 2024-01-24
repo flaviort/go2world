@@ -1,12 +1,12 @@
 .pageTransition {
     position: fixed;
     z-index: 9999;
-    top: 0;
+    top: 100%;
     left: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
-    pointer-events: none;
+    pointer-events: none;    
 
     div {
         position: relative;
@@ -25,4 +25,5 @@
     height: 100vh;
     pointer-events: none;
     background-color: $black;
+    opacity: 0;
 }

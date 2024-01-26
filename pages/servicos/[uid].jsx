@@ -82,8 +82,8 @@ export default function Service({ page }) {
   	return (
 		<>
 			<SeoContainer
-				pageTitle={page.data.meta_title}
-				pageDescription={page.data.meta_description}
+				pageTitle={page?.data?.meta_title}
+				pageDescription={page?.data?.meta_description}
 			/>
 
 			<main className={styles.service}>
@@ -92,7 +92,7 @@ export default function Service({ page }) {
 
 					<ScrollingImage>
 						<PrismicNextImage
-							field={page.data.main_image}
+							field={page?.data?.main_image}
 							className={clsx(styles.bgImage, 'cover')}
 							fill={true}
 							priority={true}
@@ -102,19 +102,19 @@ export default function Service({ page }) {
 					<div className='container relative z2'>
 
 						<div className={styles.icon}>
-							{getIconComponent(page.uid)}
+							{getIconComponent(page?.uid)}
 						</div>
 
 						<div ref={titleDesc}>
 
 							<h1 className='text-bigger-2'>
 								<span className='medium'>
-									{page.data.title}<span className='blue'>.</span>
+									{page?.data?.title}<span className='blue'>.</span>
 								</span>
 							</h1>
 
 							<p className={styles.smallDesc}>
-								{page.data.small_description}
+								{page?.data?.small_description}
 							</p>
 
 						</div>
@@ -131,7 +131,7 @@ export default function Service({ page }) {
 						</h2>
 
 						<div className={styles.content}>
-							<PrismicRichText field={page.data.content} />
+							<PrismicRichText field={page?.data?.content} />
 						</div>
 						
 						<div className={styles.slidingForm} ref={slidingForm}>
@@ -240,7 +240,7 @@ export async function getStaticPaths() {
     	return {
       		paths: pages.map((page) => ({
         		params: {
-          			uid: page.uid
+          			uid: page?.uid
         		}
       		})),
       		fallback: true

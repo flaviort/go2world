@@ -236,13 +236,3 @@ body {
 
 // colors
 .blue { color: $blue; }
-
-#page-transition {
-	position: fixed;
-	z-index: 999999;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	pointer-events: none;
-}

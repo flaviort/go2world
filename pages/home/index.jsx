@@ -173,7 +173,7 @@ export default function Home() {
 								<ScrollingImage>
 									<Image
 										alt='Galpão com vários produtos'
-										src='/img/warehouse.jpg'
+										src='/img/warehouse.webp'
 										fill={true}
 										sizes='
 											(max-width: 767px) 100vw,
@@ -301,7 +301,7 @@ export default function Home() {
 									<ScrollingImage>
 										<Image
 											alt='Vista aérea deslumbrante: Navio cargueiro repleto de containers'
-											src='/img/ship-top-view.jpg'
+											src='/img/ship-top-view.webp'
 											fill={true}
 											sizes='
 												(max-width: 767px) 100vw,
@@ -319,7 +319,7 @@ export default function Home() {
 									<ScrollingImage>
 										<Image
 											alt='Operário sorridente manuseando containers'
-											src='/img/worker-smiling.jpg'
+											src='/img/worker-smiling.webp'
 											fill={true}
 											sizes='
 												(max-width: 767px) 100vw,

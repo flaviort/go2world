@@ -3,6 +3,9 @@ import { useRouter } from 'next/router'
 import clsx from 'clsx'
 import gsap from 'gsap'
 
+// import necessary svgs
+import UxSpinner from '@/assets/svg/ux/spinner.svg'
+
 // css
 import styles from './page-transition.module.scss'
 
@@ -44,6 +47,11 @@ export const PageTransitionAnimation = ({ href }) => {
                 duration: .5
             }, '=-.5')
 
+            pageOut.to('#page-transition .spinner', {
+                opacity: 1,
+                duration: .5
+            }, '=-.5')
+
             // page IN animation
             pageIn.to('#page-transition .column', {
                 yPercent: 0,
@@ -57,6 +65,11 @@ export const PageTransitionAnimation = ({ href }) => {
                 opacity: 0,
                 duration: .5
             }, '=-.75')
+
+            pageIn.to('#page-transition .spinner', {
+                opacity: 0,
+                duration: .5
+            }, '=-1')
 
             pageIn.to('#page-transition', {
                 pointerEvents: 'none',
@@ -73,7 +86,7 @@ export default function PageTransition() {
     const nOfColumns = 5
 
     return (
-        <div id='page-transition'>
+        <div id='page-transition' className={styles.pageTransitionWrapper}>
 
             <div className={styles.pageTransition}>
                 {Array(nOfColumns).fill().map((_, i) => (
@@ -82,6 +95,10 @@ export default function PageTransition() {
             </div>
 
             <div className={clsx(styles.bg, 'bg')} />
+
+            <div className={clsx(styles.spinner, 'spinner')}>
+                <UxSpinner />
+            </div>
 
         </div>
     )

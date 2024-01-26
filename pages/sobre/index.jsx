@@ -123,7 +123,7 @@ export default function About() {
 					<div className={styles.image}>
 						<Image
 							alt='Globo terrestre'
-							src='/img/globe.png'
+							src='/img/globe.webp'
 							width={1526}
 							height={930}
 							priority={true}
@@ -217,7 +217,7 @@ export default function About() {
 							<ScrollingImage>
 								<Image
 									alt='Foto de vários containers empilhados'
-									src='/img/containers.jpg'
+									src='/img/containers.webp'
 									fill={true}
 									sizes='
 										(max-width: 767px) 100vw,

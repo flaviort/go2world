@@ -8,12 +8,13 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './service-block.module.scss'
 
-export default function ServiceBlock({ serviceTitle, serviceSmallDesc, serviceLink, serviceIcon }) {
+export default function ServiceBlock({ serviceTitle, serviceSmallDesc, serviceLink, serviceIcon, onClick }) {
 	return (
 		<MagneticButton>
 			<AnimatedLink
 				href={serviceLink}
 				className={styles.serviceBlock}
+				onClick={onClick}
 			>
 				<div className={styles.wrapper}>
 

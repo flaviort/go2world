@@ -21,7 +21,7 @@ export default function Location() {
 					<ScrollingImage>
 						<Image
 							alt='Foto de prédios'
-							src='/img/buildings.jpg'
+							src='/img/buildings.webp'
 							fill={true}
 							sizes='100vw'
 						/>

@@ -1,0 +1,167 @@
+.service {
+    .banner {
+        z-index: 0;
+        overflow: hidden;
+        background-color: $black;
+        padding-top: calc(2.5rem + var(--section-space) * 1.75);
+        padding-bottom: calc(var(--section-space) * 2);
+        color: $white;
+
+        @media #{$mq-sm-min} {
+            padding-top: calc(3.5rem + var(--section-space));
+        }
+
+        .bgImage {
+            opacity: .25;
+            image-rendering: pixelated;
+            filter: saturate(.75);
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            padding: 1.25rem;
+            background-color: $blue;
+            color: $white;
+            border-radius: 50%;
+            margin-left: -.5rem;
+
+            @media #{$mq-sm-min} {
+                width: 5rem;
+                height: 5rem;
+                padding: 1.5rem;
+            }
+        }
+
+        h1 {
+            display: block;
+            margin: 1.25rem 0 .75rem 0;
+
+            @media #{$mq-sm-min} {
+                margin: 1.5rem 0 1rem 0;
+            }
+
+            > span {
+                font-size: 115%;
+
+                @media #{$mq-sm-min} {
+                    font-size: 135%;
+                }
+            }
+        }
+
+        .smallDesc {
+            display: block;
+            width: 25rem;
+            max-width: 90%;
+
+            @media #{$mq-md-min} {
+                max-width: 50%;
+            }
+        }
+    }
+
+    .middle {
+        padding-top: var(--section-space);
+        margin-bottom: var(--section-space);
+
+        .content {
+            position: relative;
+            padding-top: calc(var(--section-space) / 2);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            @media #{$mq-md-min} {
+                width: calc(50% - 3rem);
+                gap: 2rem;
+            }
+
+            h2,
+            h3 {
+                font-weight: $medium;
+                font-size: 1.5rem;
+                line-height: 1.2;
+
+                @media #{$mq-sm-min} {
+                    font-size: 2rem;
+                }
+
+                @media #{$mq-md-min} {
+                    font-size: 2.25rem;
+                }
+            }
+
+            ul,
+            ol {
+                position: relative;
+                counter-reset: section;
+
+                li {
+                    display: block;
+                    position: relative;
+                    padding-left: 1.25rem;
+                    margin-bottom: .25rem;
+
+                    &:before {
+                        counter-increment: section;
+                        content: counter(section) '.';
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+        .slidingForm {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            right: 0;
+            width: 50%;
+            background-color: $black;
+            //margin-top: calc(var(--section-space) * 3 * -1);
+            padding: calc(var(--section-space) / 1.5) 0 calc(var(--section-space) / 1.5) calc(var(--section-space) / 1.5);
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200%;
+                height: 100%;
+                background-color: $black;
+            }
+
+            .form {
+                position: relative;
+                z-index: 2;
+            }
+        }
+    }
+
+    .alsoLike {
+        margin-bottom: var(--section-space);
+
+        .top {
+            border-top: 1px solid $gray-lightest;
+            padding-top: calc(var(--section-space) / 2);
+
+            @media #{$mq-md-min} {
+                display: flex;
+                justify-content: space-between;
+                gap: 3rem;
+            }
+
+            h2 {
+                @media #{$mq-md-max} {
+                    display: block;
+                    margin-bottom: 1.25rem;
+                }
+            }
+        }
+    }
+}

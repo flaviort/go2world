@@ -4,12 +4,125 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type ServiceDocumentDataSlicesSlice = MainTextSlice;
+/**
+ * Item in *Global Settings → Sendgrid*
+ */
+export interface GlobalSettingsDocumentDataSendgridItem {
+  /**
+   * key field in *Global Settings → Sendgrid*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_settings.sendgrid[].key
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  key: prismic.KeyTextField;
+
+  /**
+   * From Email field in *Global Settings → Sendgrid*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_settings.sendgrid[].from_email
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  from_email: prismic.KeyTextField;
+
+  /**
+   * To Email field in *Global Settings → Sendgrid*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_settings.sendgrid[].to_email
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  to_email: prismic.KeyTextField;
+}
+
+/**
+ * Content for Global Settings documents
+ */
+interface GlobalSettingsDocumentData {
+  /**
+   * Sendgrid field in *Global Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_settings.sendgrid[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  sendgrid: prismic.GroupField<
+    Simplify<GlobalSettingsDocumentDataSendgridItem>
+  >;
+}
+
+/**
+ * Global Settings document from Prismic
+ *
+ * - **API ID**: `global_settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GlobalSettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<GlobalSettingsDocumentData>,
+    "global_settings",
+    Lang
+  >;
+
+type ServiceDocumentDataSlicesSlice = never;
 
 /**
  * Content for Service documents
  */
 interface ServiceDocumentData {
+  /**
+   * Title field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Small Description field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.small_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  small_description: prismic.KeyTextField;
+
+  /**
+   * Main Image field in *Service*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.main_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  main_image: prismic.ImageField<never>;
+
+  /**
+   * Content field in *Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
   /**
    * Slice Zone field in *Service*
    *
@@ -20,28 +133,6 @@ interface ServiceDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<ServiceDocumentDataSlicesSlice> /**
-   * Meta Description field in *Service*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: service.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Service*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
    * Meta Title field in *Service*
    *
    * - **Field Type**: Text
@@ -49,8 +140,19 @@ interface ServiceDocumentData {
    * - **API ID Path**: service.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
+   */;
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: service.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
 }
 
 /**
@@ -69,14 +171,14 @@ export type ServiceDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = ServiceDocument;
+export type AllDocumentTypes = GlobalSettingsDocument | ServiceDocument;
 
 /**
  * Primary content in *MainText → Primary*
  */
 export interface MainTextSliceDefaultPrimary {
   /**
-   * text field in *MainText → Primary*
+   * Text field in *MainText → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -126,6 +228,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      GlobalSettingsDocument,
+      GlobalSettingsDocumentData,
+      GlobalSettingsDocumentDataSendgridItem,
       ServiceDocument,
       ServiceDocumentData,
       ServiceDocumentDataSlicesSlice,

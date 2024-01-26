@@ -105,7 +105,7 @@ export default function FsMenu(props) {
 
 				<div className={styles.menu}>
 
-					<Services />
+					<Services onClick={hideMenu} />
 
 					<ul className={styles.ul}>
 						
@@ -152,7 +152,7 @@ export default function FsMenu(props) {
 	)
 }
 
-export const Services = () => {
+export const Services = ({ onClick }) => {
 
 	// get all services
 	const allServices = getAllServices()
@@ -190,6 +190,7 @@ export const Services = () => {
 							serviceSmallDesc={allServices[key].smallDesc}
 							serviceLink={'servicos/' + key}
 							serviceIcon={getIconComponent(key)}
+							onClick={onClick}
 						/>
 					</SwiperSlide>
 				))}

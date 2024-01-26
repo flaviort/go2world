@@ -47,7 +47,7 @@ export default function CtaBig({ className }) {
 					<Image
 						className={styles.shippingContainer}
 						alt='Container'
-						src='/img/container.png'
+						src='/img/container.webp'
 						width='1200'
 						height='895'
 						sizes='45vw'

@@ -46,12 +46,11 @@ export default function TopMenu() {
 	const router = useRouter()
 	const whiteMenu = 
 		router.pathname === '/' ||
-		router.pathname === '/404' ||
 		router.pathname === '/servicos' ||
 		router.pathname.startsWith('/servicos/')
 
 	return (
-		<section className={clsx(styles.topMenu, whiteMenu && styles.white)}>
+		<section id='top-menu' className={clsx(styles.topMenu, whiteMenu && styles.white)}>
 			<div className='container container-big'>
 				<div className={styles.flex}>
 

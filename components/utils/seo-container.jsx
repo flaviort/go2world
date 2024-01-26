@@ -14,7 +14,7 @@ export default function SEOContainer({ pageTitle, pageDescription }) {
 	const defaultPageTitle = 'Logística global ao seu alcance.'
 	const defaultPageDesc = 'Conectando seu negócio ao mundo com eficiência na cadeia de suprimentos. Escolha a excelência, impulsione seu negócio!'
 
-	const image = router.basePath + '/img/og-image.jpg'
+	const image = router.basePath + '/img/og-image.webp'
 
     return (
         <Head>

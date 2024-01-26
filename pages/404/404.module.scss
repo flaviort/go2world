@@ -1,3 +1,43 @@
 .fourOhFour {
-    
+    padding-top: calc(2.5rem + var(--section-space) * 1.75);
+
+    @media #{$mq-sm-min} {
+        padding-top: calc(3.5rem + var(--section-space));
+    }
+
+    .main {
+        margin-bottom: calc(var(--section-space) * 1.5);
+
+        .flex {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: calc(var(--section-space) / 3);
+
+            h3 {
+                position: relative;
+                z-index: 2;
+                margin-bottom: -.5rem;
+
+                @media #{$mq-sm-min} {
+                    margin-bottom: -1rem;
+                }
+            }
+
+            .illustration {
+                @media #{$mq-sm-max} {
+                    width: 175%;
+                }
+            }
+
+            .desc {
+                display: block;
+                width: 30rem;
+                max-width: 100%;
+                margin-bottom: .5rem;
+            }
+        }
+    }
 }

@@ -86,7 +86,7 @@ export default function Services() {
 							<ScrollingImage>
 								<Image
 									alt='Entregador organizando caixas'
-									src='/img/delivery-man.jpg'
+									src='/img/delivery-man.webp'
 									priority={true}
 									fill={true}
 									sizes='100vw'

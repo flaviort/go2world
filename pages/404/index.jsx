@@ -1,5 +1,14 @@
-import Link from 'next/link'
+// import routes / services
+import routes from '@/utils/routes'
+
+// components
 import AnimatedLink from '@/components/utils/animated-link'
+import SeoContainer from '@/components/utils/seo-container'
+import MagneticButton from '@/components/utils/magnetic-button'
+
+// import necessary svgs
+import Delivery from '@/assets/svg/delivery.svg'
+import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 
 // css
 import styles from './404.module.scss'
@@ -7,11 +16,46 @@ import styles from './404.module.scss'
 export default function FourOhFour() {
     return (
 		<>
+
+			<SeoContainer
+				pageTitle='Págnia não encontrada'
+				pageDescription='Oops! Procuramos por toda parte mas infelizmente não conseguimos encontrar a página que você procura.'
+			/>
+
 			<main className={styles.fourOhFour}>
-				<section style={{
-					'minHeight': '80vh'
-				}}>
-					404
+				<section className={styles.main}>
+					<div className='container'>
+						<div className={styles.flex}>
+
+							<h3 className='subtitle'>
+								Erro 404
+							</h3>
+
+							<div className={styles.illustration}>
+								<Delivery />
+							</div>
+
+							<h1 className='text-bigger-2 medium'>
+								Página não <br />
+								encontrada<span className='blue'>.</span>
+							</h1>
+
+							<p className={styles.desc}>
+								Oops! Procuramos por toda parte mas infelizmente não conseguimos encontrar a página que você procura.
+							</p>
+
+							<MagneticButton>
+								<AnimatedLink
+									href={routes.home}
+									className='blue-button text-small'
+								>
+									<span>Voltar ao início</span>
+									<UxArrowRight />
+								</AnimatedLink>
+							</MagneticButton>
+
+						</div>
+					</div>
 				</section>
 			</main>
 		</>

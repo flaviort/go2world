@@ -10,7 +10,7 @@ export default (req, res) => {
 
 	const data = {
 		to: 'flavioczuk@gmail.com',
-		from: 'flavioczuk@gmail.com',
+		from: 'lgomes@go2world.com.br',
 		subject: 'test',
 		text: 'test',
 	}

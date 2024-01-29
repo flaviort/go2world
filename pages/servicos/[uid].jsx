@@ -32,7 +32,7 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './single.module.scss'
 
-export default function Service({ page, settings }) {
+export default function Service({ page }) {
 
 	// refs
 	const titleDesc = useRef(null)
@@ -44,8 +44,6 @@ export default function Service({ page, settings }) {
 	const serviceKeys = Object.keys(allServices)
 
 	useEffect(() => {
-
-		console.log(settings.data.sendgrid_key)
 		
 		// this is needed for swiper
 		register()
@@ -152,8 +150,6 @@ export default function Service({ page, settings }) {
 						
 						<div className={styles.slidingForm} ref={slidingForm}>
 							<Form className={styles.form}>
-
-								<InputHidden value={settings?.data?.sendgrid_key} />
 
 								<Input
 									dark={true}
@@ -274,12 +270,10 @@ export async function getStaticProps({ params }) {
 
   	try {
     	const page = await client.getByUID('service', params.uid)
-		const settings = await client.getSingle('global_settings', params)
 
     	return {
       		props: {
-        		page,
-				settings
+        		page
       		}
     	}
   	} catch (error) {

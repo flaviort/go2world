@@ -9,12 +9,26 @@ export const Form = ({ className, children }) => {
     })
     
     const onSubmit = (data) => {
-        console.log(data)
-
         fetch('/api/mail-services', {
             method: 'post',
             body: JSON.stringify(data)
         })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to send message.');
+            }
+        })
+        .then(data => {
+            // Display alert based on the response
+            alert(data.message);
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error:', error);
+            alert('Failed to send message. Please try again later.');
+        });
     }
 
     return (
@@ -86,7 +100,7 @@ export const Input = ({ id, label, type, placeholder, dark, required, maxLength 
     )
 }
 
-export const InputHidden = ({ value }) => {
+export const InputHidden = ({ id, value }) => {
 
     const {
         register
@@ -96,7 +110,7 @@ export const InputHidden = ({ value }) => {
         <input
             type='hidden'
             value={value}
-            {...register('sg_key')}
+            {...register(id)}
         />
     )
 }

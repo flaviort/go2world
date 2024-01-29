@@ -151,11 +151,16 @@ export default function Service({ page }) {
 						<div className={styles.slidingForm} ref={slidingForm}>
 							<Form className={styles.form}>
 
+								<InputHidden
+									id='page_title'
+									value={page?.data?.title}
+								/>
+
 								<Input
 									dark={true}
 									label='Nome'
 									type='text'
-									id='service-name'
+									id='service_name'
 									placeholder='Nome completo'
 									required
 									maxLength={100}
@@ -165,7 +170,7 @@ export default function Service({ page }) {
 									dark={true}
 									label='Email'
 									type='email'
-									id='service-email'
+									id='service_email'
 									placeholder='email@email.com'
 									required
 									maxLength={75}
@@ -175,7 +180,7 @@ export default function Service({ page }) {
 									dark={true}
 									label='Telefone'
 									type='text'
-									id='service-phone'
+									id='service_phone'
 									placeholder='+00 (00) 0000-0000'
 									maxLength={50}
 								/>
@@ -183,7 +188,7 @@ export default function Service({ page }) {
 								<Textarea
 									dark={true}
 									label='Mais detalhes'
-									id='service-infos'
+									id='service_message'
 									placeholder='Digite aqui sua mensagem'
 									maxLength={2000}
 								/>

@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 import { useEffect } from 'react'
-import { atom, useRecoilState } from 'recoil'
+import { useRecoilState } from 'recoil'
 
-// import routes
+// import routes / utils
 import routes from '@/utils/routes'
 import { getAllServices, getIconComponent } from '@/utils/services'
+import { fsMenuState } from '@/utils/atoms'
 
 // swiper related imports
 import { register } from 'swiper/element/bundle'
@@ -25,13 +26,7 @@ import SocialWhatsapp from '@/assets/svg/social/whatsapp.svg'
 // css
 import styles from './fs-menu.module.scss'
 
-// export fs menu state via recoil
-export const fsMenuState = atom({
-	key: 'fsMenuStateKey',
-	default: false
-})
-
-export default function FsMenu(props) {
+export default function FsMenu() {
 
 	const [fsMenu, setFsMenu] = useRecoilState(fsMenuState)
 

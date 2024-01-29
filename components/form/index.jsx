@@ -10,6 +10,11 @@ export const Form = ({ className, children }) => {
     
     const onSubmit = (data) => {
         console.log(data)
+
+        fetch('/api/mail-services', {
+            method: 'post',
+            body: JSON.stringify(data)
+        })
     }
 
     return (
@@ -78,6 +83,21 @@ export const Input = ({ id, label, type, placeholder, dark, required, maxLength 
             )}
 
         </div>
+    )
+}
+
+export const InputHidden = ({ value }) => {
+
+    const {
+        register
+    } = useFormContext() ?? {}
+
+    return (
+        <input
+            type='hidden'
+            value={value}
+            {...register('sg_key')}
+        />
     )
 }
 

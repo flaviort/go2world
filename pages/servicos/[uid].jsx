@@ -2,24 +2,28 @@ import { createClient } from '@/prismicio'
 import { PrismicNextImage } from '@prismicio/next'
 import { PrismicRichText } from '@prismicio/react'
 import clsx from 'clsx'
-import { useEffect, useRef, useState } from 'react'
-
-// gsap related imports
-import { gsap } from 'gsap'
-import { useGSAP } from '@gsap/react'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-gsap.registerPlugin(ScrollTrigger)
+import { useEffect, useRef } from 'react'
 
 // import routes / services
 import routes from '@/utils/routes'
 import { getAllServices, getIconComponent } from '@/utils/services'
+
+// gsap related imports
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+
+// swiper related imports
+import { register } from 'swiper/element/bundle'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
 
 // components
 import SeoContainer from '@/components/utils/seo-container'
 import ScrollingImage from '@/components/utils/scrolling-image'
 import MagneticButton from '@/components/utils/magnetic-button'
 import AnimatedLink from '@/components/utils/animated-link'
-import { Form, Input, Textarea } from '@/components/form'
+import { Form, Input, InputHidden, Textarea } from '@/components/form'
 import ServiceBlock from '@/components/service-block'
 
 // import necessary svgs
@@ -28,15 +32,25 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 // css
 import styles from './single.module.scss'
 
-export default function Service({ page }) {
+export default function Service({ page, settings }) {
 
-  	console.log(page)
-
+	// refs
 	const titleDesc = useRef(null)
 	const content = useRef(null)
 	const slidingForm = useRef(null)
 
-	useGSAP(() => {
+	// get all services
+	const allServices = getAllServices()
+	const serviceKeys = Object.keys(allServices)
+
+	useEffect(() => {
+
+		console.log(settings.data.sendgrid_key)
+		
+		// this is needed for swiper
+		register()
+
+		// make the form follow the scroll on desktop resolutions
 		if (window.innerWidth >= 767) {
 
 			// get the height of the refs
@@ -45,37 +59,39 @@ export default function Service({ page }) {
 			const slidingFormHeight = slidingForm.current.offsetHeight
 
 			// get the root (html) element
-			var root = document.documentElement
+			const root = document.documentElement
 
 			// get the value of the --section-space variable
-			var sectionSpaceInRem = parseFloat(getComputedStyle(root).getPropertyValue('--section-space'))
+			let sectionSpaceInRem = parseFloat(getComputedStyle(root).getPropertyValue('--section-space'))
 
 			// get the font size of the root element in pixels
-			var fontSizeInPixels = parseFloat(getComputedStyle(root).fontSize)
+			let fontSizeInPixels = parseFloat(getComputedStyle(root).fontSize)
 
 			// convert the value from rem to pixels
-			var sectionSpace = sectionSpaceInRem * fontSizeInPixels
+			let sectionSpace = sectionSpaceInRem * fontSizeInPixels
 
 			// this hacky thing represents the space between the title of the page and the title (Sobre o serviço)
-			const negativeMargin = sectionSpace * 3 * -1 - titleDescHeight
+			let negativeMargin = sectionSpace * 3 * -1 - titleDescHeight
+
+			// finally we calculate everything to make the scrolltrigger effect
+			// this calculates the space to make the bottom part of the sliding form unpin itself when it hit the bottom part of the content
+			let endPosition = (contentHeight - slidingFormHeight - negativeMargin)
 
 			// this moves the sliding form to the same height as the title of the page
 			gsap.set(slidingForm.current, {
 				y: negativeMargin
 			})
 
-			// finally we calculate everything to make the scrolltrigger effect
-			// this calculates the space to make the bottom part of the sliding form unpin itself when it hit the bottom part of the content
-			const endPosition = (contentHeight - slidingFormHeight - negativeMargin)
-
-			// and here´s the scrolltrigger effect itself
-			ScrollTrigger.create({
+			// and create the scrolltrigger effect itself
+			const st = ScrollTrigger.create({
 				trigger: slidingForm.current,
 				start: 'top top',
 				end: `+=${endPosition}`,
 				pin: true,
-				markers: true
+				//markers: true
 			})
+
+			return ()=> st.kill()
 		}
 	})
 
@@ -86,7 +102,7 @@ export default function Service({ page }) {
 				pageDescription={page?.data?.meta_description}
 			/>
 
-			<main className={styles.service}>
+			<main className={styles.service} id='main-content'>
 
 				<section className={styles.banner}>
 
@@ -105,7 +121,7 @@ export default function Service({ page }) {
 							{getIconComponent(page?.uid)}
 						</div>
 
-						<div ref={titleDesc}>
+						<div className={styles.topContent} ref={titleDesc}>
 
 							<h1 className='text-bigger-2'>
 								<span className='medium'>
@@ -136,6 +152,8 @@ export default function Service({ page }) {
 						
 						<div className={styles.slidingForm} ref={slidingForm}>
 							<Form className={styles.form}>
+
+								<InputHidden value={settings?.data?.sendgrid_key} />
 
 								<Input
 									dark={true}
@@ -198,12 +216,50 @@ export default function Service({ page }) {
 
 							<MagneticButton>
 								<AnimatedLink href={routes.services} className='hollow-button text-small'>
-									<span>Nossos serviços</span>
+									<span>Todos serviços</span>
 									<UxArrowRight />
 								</AnimatedLink>
 							</MagneticButton>
 
 						</div>
+
+						<Swiper
+							className={styles.slider}
+							spaceBetween={10}
+							slidesPerView={1.3}
+							freeMode={true}
+							mousewheel={{  
+								forceToAxis: true
+							}}
+							breakpoints={{
+								576: {
+									slidesPerView: 2,
+									spaceBetween: 20
+								},
+								768: {
+									slidesPerView: 3,
+									spaceBetween: 20
+								},
+								1201: {
+									slidesPerView: 3,
+									spaceBetween: 30
+								}
+							}}
+						>
+							{serviceKeys.map((key) => (
+								page?.uid !== key && (
+									<SwiperSlide key={key}>
+										<ServiceBlock
+											key={key}
+											serviceTitle={allServices[key].title}
+											serviceSmallDesc={allServices[key].smallDesc}
+											serviceLink={key}
+											serviceIcon={getIconComponent(key)}
+										/>
+									</SwiperSlide>
+								)
+							))}
+						</Swiper>
 
 					</div>
 				</section>
@@ -218,10 +274,12 @@ export async function getStaticProps({ params }) {
 
   	try {
     	const page = await client.getByUID('service', params.uid)
+		const settings = await client.getSingle('global_settings', params)
 
     	return {
       		props: {
-        		page
+        		page,
+				settings
       		}
     	}
   	} catch (error) {
@@ -240,7 +298,7 @@ export async function getStaticPaths() {
     	return {
       		paths: pages.map((page) => ({
         		params: {
-          			uid: page?.uid
+          			uid: page?.uid,
         		}
       		})),
       		fallback: true

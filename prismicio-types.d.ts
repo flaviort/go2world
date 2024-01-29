@@ -5,56 +5,41 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
- * Item in *Global Settings → Sendgrid*
- */
-export interface GlobalSettingsDocumentDataSendgridItem {
-  /**
-   * key field in *Global Settings → Sendgrid*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: global_settings.sendgrid[].key
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  key: prismic.KeyTextField;
-
-  /**
-   * From Email field in *Global Settings → Sendgrid*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: global_settings.sendgrid[].from_email
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  from_email: prismic.KeyTextField;
-
-  /**
-   * To Email field in *Global Settings → Sendgrid*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: global_settings.sendgrid[].to_email
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  to_email: prismic.KeyTextField;
-}
-
-/**
  * Content for Global Settings documents
  */
 interface GlobalSettingsDocumentData {
   /**
-   * Sendgrid field in *Global Settings*
+   * Sendgrid Key field in *Global Settings*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: global_settings.sendgrid[]
+   * - **API ID Path**: global_settings.sendgrid_key
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  sendgrid: prismic.GroupField<
-    Simplify<GlobalSettingsDocumentDataSendgridItem>
-  >;
+  sendgrid_key: prismic.KeyTextField;
+
+  /**
+   * Sendgrid From field in *Global Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_settings.sendgrid_from
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sendgrid_from: prismic.KeyTextField;
+
+  /**
+   * Sendgrid To field in *Global Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: global_settings.sendgrid_to
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sendgrid_to: prismic.KeyTextField;
 }
 
 /**
@@ -132,27 +117,7 @@ interface ServiceDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<ServiceDocumentDataSlicesSlice> /**
-   * Meta Title field in *Service*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: service.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *Service*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: service.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
+  slices: prismic.SliceZone<ServiceDocumentDataSlicesSlice>;
 }
 
 /**
@@ -230,7 +195,6 @@ declare module "@prismicio/client" {
     export type {
       GlobalSettingsDocument,
       GlobalSettingsDocumentData,
-      GlobalSettingsDocumentDataSendgridItem,
       ServiceDocument,
       ServiceDocumentData,
       ServiceDocumentDataSlicesSlice,

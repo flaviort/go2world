@@ -1,5 +1,10 @@
-// import routes / services
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useRecoilState } from 'recoil'
+
+// import routes / services / utils
 import routes from '@/utils/routes'
+import { whiteMenuState } from '@/utils/atoms'
 
 // components
 import AnimatedLink from '@/components/utils/animated-link'
@@ -14,6 +19,19 @@ import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
 import styles from './404.module.scss'
 
 export default function FourOhFour() {
+
+	const [whiteMenu, setWhiteMenu] = useRecoilState(whiteMenuState)
+
+	const router = useRouter()
+
+	useEffect(() => {
+		if ( router.pathname.startsWith('/servicos/') ) {
+			setWhiteMenu(false)
+		} else {
+			setWhiteMenu(true)
+		}
+	}, [router.pathname, setWhiteMenu])
+
     return (
 		<>
 

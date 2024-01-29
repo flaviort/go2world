@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { useRouter } from 'next/router'
 
-// import routes
+// import routes / utils
 import routes from '@/utils/routes'
+import { whiteMenuState, fsMenuState } from '@/utils/atoms'
 
 // components
-import { fsMenuState } from '@/components/fs-menu'
 import AnimatedLink from '@/components/utils/animated-link'
 import MagneticButton from '@/components/utils/magnetic-button'
 
@@ -44,10 +44,21 @@ export default function TopMenu() {
 	]
 
 	const router = useRouter()
-	const whiteMenu = 
-		router.pathname === '/' ||
-		router.pathname === '/servicos' ||
-		router.pathname.startsWith('/servicos/')
+
+	const [whiteMenu, setWhiteMenu] = useRecoilState(whiteMenuState)
+
+	useEffect(() => {
+
+		if (
+			router.pathname === '/' ||
+			router.pathname === '/servicos' ||
+			router.pathname.startsWith('/servicos/')
+		) {
+			setWhiteMenu(true)
+		} else {
+			setWhiteMenu(false)
+		}
+	}, [router.pathname, setWhiteMenu])
 
 	return (
 		<section id='top-menu' className={clsx(styles.topMenu, whiteMenu && styles.white)}>

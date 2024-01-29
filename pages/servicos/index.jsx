@@ -113,41 +113,17 @@ export default function Services() {
 
 						</div>
 
-						{ breakXs ? (
-							<div className={styles.grid}>
-								{serviceKeys.map((key) => (
-									<ServiceBlock
-										key={key}
-										serviceTitle={allServices[key].title}
-										serviceSmallDesc={allServices[key].smallDesc}
-										serviceLink={'servicos/' + key}
-										serviceIcon={getIconComponent(key)}
-									/>
-								))}
-							</div>
-						):(
-							<Swiper
-								className={styles.slider}
-								spaceBetween={10}
-								slidesPerView={1.3}
-								freeMode={true}
-								mousewheel={{  
-									forceToAxis: true
-								}}
-							>
-								{serviceKeys.map((key) => (
-									<SwiperSlide key={key}>
-										<ServiceBlock
-											key={key}
-											serviceTitle={allServices[key].title}
-											serviceSmallDesc={allServices[key].smallDesc}
-											serviceLink={'servicos/' + key}
-											serviceIcon={getIconComponent(key)}
-										/>
-									</SwiperSlide>
-								))}
-							</Swiper>
-						)}
+						<div className={styles.grid}>
+							{serviceKeys.map((key) => (
+								<ServiceBlock
+									key={key}
+									serviceTitle={allServices[key].title}
+									serviceSmallDesc={allServices[key].smallDesc}
+									serviceLink={'servicos/' + key}
+									serviceIcon={getIconComponent(key)}
+								/>
+							))}
+						</div>
 
 					</div>
 				</section>

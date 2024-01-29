@@ -6,33 +6,25 @@
   "status": true,
   "json": {
     "Main": {
-      "sendgrid": {
-        "type": "Group",
+      "sendgrid_key": {
+        "type": "Text",
         "config": {
-          "label": "Sendgrid",
-          "fields": {
-            "key": {
-              "type": "Text",
-              "config": {
-                "label": "key",
-                "placeholder": ""
-              }
-            },
-            "from_email": {
-              "type": "Text",
-              "config": {
-                "label": "From Email",
-                "placeholder": ""
-              }
-            },
-            "to_email": {
-              "type": "Text",
-              "config": {
-                "label": "To Email",
-                "placeholder": ""
-              }
-            }
-          }
+          "label": "Sendgrid Key",
+          "placeholder": ""
+        }
+      },
+      "sendgrid_from": {
+        "type": "Text",
+        "config": {
+          "label": "Sendgrid From",
+          "placeholder": ""
+        }
+      },
+      "sendgrid_to": {
+        "type": "Text",
+        "config": {
+          "label": "Sendgrid To",
+          "placeholder": ""
         }
       }
     }

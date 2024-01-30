@@ -1,0 +1,17 @@
+.modalIcon {
+    display: flex;
+    width: 20rem;
+    max-width: 50%;
+    margin: auto auto calc(var(--section-space) / 3) auto;
+}
+
+.modalDesc {
+    display: block;
+    margin: calc(var(--section-space) / 4) 0 calc(var(--section-space) / 3) 0;
+}
+
+.button {
+    > div {
+        margin: auto;
+    }
+}

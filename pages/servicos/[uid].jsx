@@ -28,6 +28,7 @@ import ServiceBlock from '@/components/service-block'
 
 // import necessary svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
+import UxSpinner from '@/assets/svg/ux/spinner.svg'
 
 // css
 import styles from './single.module.scss'
@@ -152,7 +153,7 @@ export default function Service({ page }) {
 							<Form className={styles.form}>
 
 								<InputHidden
-									id='page_title'
+									label='Página'
 									value={page?.data?.title}
 								/>
 
@@ -187,7 +188,7 @@ export default function Service({ page }) {
 
 								<Textarea
 									dark={true}
-									label='Mais detalhes'
+									label='Mensagem'
 									id='service_message'
 									placeholder='Digite aqui sua mensagem'
 									maxLength={2000}
@@ -197,6 +198,11 @@ export default function Service({ page }) {
 									<button type='submit' className={clsx(styles.sendButton, 'blue-button text-small')}>
 										<span>Enviar</span>
 										<UxArrowRight />
+
+										<span className='spinner'>
+											<UxSpinner />
+										</span>
+
 									</button>
 								</MagneticButton>
 

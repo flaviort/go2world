@@ -1,10 +1,22 @@
+import { forwardRef } from 'react'
+
 // css
 import styles from './modal.module.scss'
 
-export default function Modal({ children }) {
+const Modal = forwardRef(function Modal({ children, onClick }, ref) {
+
     return (
-        <dialog>
-            
+        <dialog ref={ref} className={styles.dialog}>
+
+            <div className={styles.backdrop} onClick={onClick} />
+
+            <div className={styles.dialogWrapper}>
+                <div className='relative'>
+                    {children}
+                </div>
+            </div>
         </dialog>
     )
-}
+})
+
+export default Modal

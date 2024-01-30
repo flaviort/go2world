@@ -103,6 +103,7 @@
     width: fit-content;
     cursor: pointer;
     position: relative;
+    overflow: hidden;
     line-height: 1;
     white-space: nowrap;
     border-radius: 5rem;
@@ -125,13 +126,36 @@
         min-width: .75rem;
         height: .75rem;
     }
+
+    .spinner {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s ease-in-out;
+
+        svg {
+            width: 50%;
+            height: 50%;
+            animation: rotation 1s infinite linear;
+        }
+    }
 }
 
 .hollow-button {
     border: 1px solid $gray-darker;
     color: $gray-darker;
 
-    &:hover {
+    &:hover,
+    .spinner {
         background-color: $gray-darker;
         color: $white;
     }
@@ -141,7 +165,8 @@
     border: 1px solid $white;
     color: $white;
 
-    &:hover {
+    &:hover,
+    .spinner {
         background-color: $white;
         color: $blue;
     }
@@ -151,7 +176,8 @@
     background-color: $blue;
     color: $white;
 
-    &:hover {
+    &:hover,
+    .spinner {
         background-color: $gray-darker;
         color: $white;
     }
@@ -161,7 +187,8 @@
     background-color: $black;
     color: $white;
 
-    &:hover {
+    &:hover,
+    .spinner {
         background-color: $blue;
         color: $white;
     }
@@ -171,7 +198,8 @@
     background-color: $white;
     color: $black;
 
-    &:hover {
+    &:hover,
+    .spinner {
         background-color: $black;
         color: $white;
     }

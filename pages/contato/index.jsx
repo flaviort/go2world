@@ -7,7 +7,7 @@ import routes from '@/utils/routes'
 // components
 import SeoContainer from '@/components/utils/seo-container'
 import MagneticButton from '@/components/utils/magnetic-button'
-import { Form, Input, Textarea } from '@/components/form'
+import { Form, Input, Textarea, InputHidden } from '@/components/form'
 import Location from '@/components/location'
 import Faq from '@/components/faq'
 import Clients from '@/components/clients'
@@ -16,6 +16,7 @@ import Clients from '@/components/clients'
 import UxEmail from '@/assets/svg/ux/envelope.svg'
 import UxPhone from '@/assets/svg/ux/phone.svg'
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
+import UxSpinner from '@/assets/svg/ux/spinner.svg'
 
 // css
 import styles from './contact.module.scss'
@@ -124,6 +125,11 @@ export default function Contact() {
 								<div className='relative z2'>
 									<Form className={styles.form}>
 
+										<InputHidden
+											label='Página'
+											value='Contato'
+										/>
+
 										<Input
 											dark
 											label='Nome'
@@ -164,8 +170,14 @@ export default function Contact() {
 
 										<MagneticButton>
 											<button type='submit' className='blue-button text-small'>
+												
 												<span>Enviar</span>
 												<UxArrowRight />
+
+												<span className='spinner'>
+													<UxSpinner />
+												</span>
+
 											</button>
 										</MagneticButton>
 

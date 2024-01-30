@@ -3,12 +3,13 @@ import clsx from 'clsx'
 // components
 import SeoContainer from '@/components/utils/seo-container'
 import MagneticButton from '@/components/utils/magnetic-button'
-import { Form, Input, Textarea } from '@/components/form'
+import { Form, Input, Textarea, InputHidden } from '@/components/form'
 import Faq from '@/components/faq'
 import Clients from '@/components/clients'
 
 // import necessary svgs
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
+import UxSpinner from '@/assets/svg/ux/spinner.svg'
 
 // css
 import styles from './quote.module.scss'
@@ -49,6 +50,12 @@ export default function Quote() {
 						</div>
 
 						<Form className={styles.form}>
+
+							<InputHidden
+								label='Página'
+								value='Cotação'
+							/>
+
 							<div className='row'>
 
 								<div className='col-md-6 col-lg-4'>
@@ -170,7 +177,7 @@ export default function Quote() {
 							</div>
 
 							<Textarea
-								label='Mais detalhes'
+								label='Mensagem'
 								id='quote-infos'
 								placeholder='Digite aqui sua mensagem'
 								maxLength={2000}
@@ -179,8 +186,14 @@ export default function Quote() {
 							<div className={styles.lastLine}>
 								<MagneticButton>
 									<button type='submit' className={clsx(styles.sendButton, 'blue-button text-small')}>
+										
 										<span>Solicitar cotação</span>
 										<UxArrowRight />
+
+										<span className='spinner'>
+											<UxSpinner />
+										</span>
+
 									</button>
 								</MagneticButton>
 							</div>

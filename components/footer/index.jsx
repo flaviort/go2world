@@ -14,11 +14,12 @@ import routes from '@/utils/routes'
 // components
 import AnimatedLink from '@/components/utils/animated-link'
 import MagneticButton from '@/components/utils/magnetic-button'
-import { Form, Input } from '@/components/form'
+import { Form, Input, InputHidden } from '@/components/form'
 
 // import necessary svgs
 import Logo from '@/assets/svg/logo.svg'
 import UxArrowRight from '@/assets/svg/ux/arrow-right.svg'
+import UxSpinner from '@/assets/svg/ux/spinner.svg'
 import SocialInstagram from '@/assets/svg/social/instagram.svg'
 //import SocialLinkedin from '@/assets/svg/social/linkedin.svg'
 //import SocialPinterest from '@/assets/svg/social/pinterest.svg'
@@ -129,6 +130,11 @@ export default function Footer() {
 
 									<Form className={styles.form}>
 
+										<InputHidden
+											label='Página'
+											value='Newsletter'
+										/>
+
 										<Input
 											dark
 											label='Email'
@@ -142,8 +148,14 @@ export default function Footer() {
 
 											<MagneticButton>
 												<button type='submit' className='blue-button text-small'>
+													
 													<span>Enviar</span>
 													<UxArrowRight />
+
+													<span className='spinner'>
+														<UxSpinner />
+													</span>
+
 												</button>
 											</MagneticButton>
 

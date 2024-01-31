@@ -1,7 +1,7 @@
 import { RecoilRoot } from 'recoil'
-import SmoothScrolling from '@/components/utils/smooth-scrolling'
 
 // components
+import SmoothScrolling from '@/components/utils/smooth-scrolling'
 import PageTransition from '@/components/page-transition'
 import TopMenu from '@/components/top-menu'
 import FsMenu from '@/components/fs-menu'

@@ -43,7 +43,8 @@ export default (req, res) => {
 	`;
 
 	const data = {
-		to: 'fbarros@go2world.com.br',
+		to: ['fbarros@go2world.com.br', 'lgomes@go2world.com.br'],
+		//to: 'flavioczuk@gmail.com',
 		from: 'lgomes@go2world.com.br',
 		subject: `Formulário de contato do site Go2World`,
 		text: message,

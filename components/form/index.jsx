@@ -9,6 +9,7 @@ import MagneticButton from '../utils/magnetic-button'
 // import necessary svgs
 import Mailbox from '@/assets/svg/mailbox.svg'
 import Bug from '@/assets/svg/bug.svg'
+import UxAngleDown from '@/assets/svg/ux/angle-down.svg'
 
 // css
 import styles from './form.module.scss'
@@ -199,6 +200,53 @@ export const Input = ({ id, label, type, placeholder, dark, required, maxLength 
                     className='input'
                     {...register(label, validations)}
                 />
+
+            </div>
+
+            {errors[label] && (
+                <p className='text-small error-msg'>
+                    {errors[label].message}
+                </p>
+            )}
+
+        </div>
+    )
+}
+
+export const Select = ({ id, label, defaultValue, dark, required, children, value, onChange }) => {
+
+    const {
+        register,
+        formState: {
+            errors
+        }
+    } = useFormContext() ?? {}
+
+    let validations = {
+        required: required && 'Este campo é obrigatório'
+    }
+
+    return (
+        <div className={clsx('form-line', dark && 'dark', errors[label] && 'error')}>
+
+            <label className='label text-small' htmlFor={id}>
+                {label}
+            </label>
+
+            <div className='line-wrapper'>
+
+                <select
+                    id={id}
+                    className='input select'
+                    defaultValue={defaultValue}
+                    {...register(label, validations)}
+                    value={value}
+                    onChange={onChange}
+                >
+                    {children}
+                </select>
+
+                <UxAngleDown />
 
             </div>
 

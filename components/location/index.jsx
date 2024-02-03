@@ -53,8 +53,13 @@ export default function Location() {
 									</Link>
 								</MagneticButton>
 								<MagneticButton>
-									<Link href={'tel:' + routes.phoneCuritiba.replace(/[^0-9]/g, '')} className='hover-underline'>
-										{routes.phoneCuritiba}
+									<Link href={'tel:' + routes.phoneLuis.replace(/[^0-9]/g, '')} className='hover-underline'>
+										{routes.phoneLuis}
+									</Link>
+								</MagneticButton>
+								<MagneticButton>
+									<Link href={'tel:' + routes.phoneFlavia.replace(/[^0-9]/g, '')} className='hover-underline'>
+										{routes.phoneFlavia}
 									</Link>
 								</MagneticButton>
 							</div>

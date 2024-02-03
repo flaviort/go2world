@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import clsx from 'clsx'
 
 // components
 import SeoContainer from '@/components/utils/seo-container'
 import MagneticButton from '@/components/utils/magnetic-button'
-import { Form, Input, Textarea, InputHidden } from '@/components/form'
+import { Form, Input, Select, Textarea, InputHidden } from '@/components/form'
 import Faq from '@/components/faq'
 import Clients from '@/components/clients'
 
@@ -15,6 +16,9 @@ import UxSpinner from '@/assets/svg/ux/spinner.svg'
 import styles from './quote.module.scss'
 
 export default function Quote() {
+
+	const [transporte, setTransporte] = useState('')
+	const [modal, setModal] = useState('Full Container')
 
     return (
 		<>
@@ -100,12 +104,97 @@ export default function Quote() {
 									/>
 								</div>
 
-								<div className='col-lg-4'>
+								<div className='col-md-6 col-lg-4'>
 									<Input
 										label='Produto'
 										type='text'
 										id='quote-product'
-										placeholder='Descreva qual a carga'
+										placeholder='Carga geral, metal, alimentos...'
+										required
+										maxLength={100}
+									/>
+								</div>
+
+								<div className='col-md-6 col-lg-4'>
+									<Select
+										label='Tipo de transporte'
+										id='quote-transport'
+										placeholder='Selecione o tipo de frete'
+										required
+										value={transporte}
+          								onChange={(e) => setTransporte(e.target.value)}
+										defaultValue=''
+									>
+										<option value='' disabled>Selecione</option>
+										<option value='Frete Aéreo'>Frete Aéreo</option>
+										<option value='Frete Marítimo'>Frete Marítimo</option>
+										<option value='Frete Rodoviário'>Frete Rodoviário</option>
+										<option value='Outros'>Outros</option>
+									</Select>
+								</div>
+
+								{ transporte === 'Frete Marítimo' && (
+									<>
+
+										<div className='col-md-6'>
+											<Select
+												label='Modal'
+												id='quote-modal'
+												defaultValue='Full Container'
+												value={modal}
+          										onChange={(e) => setModal(e.target.value)}
+												required
+											>
+												<option value='Full Container'>Full Container</option>
+												<option value='LCL'>LCL</option>
+											</Select>
+										</div>
+
+										{ modal === 'Full Container' && (
+											<div className='col-md-6'>
+												<Input
+													label='Tipo de Container'
+													type='text'
+													id='quote-container'
+													placeholder='20NOR, 40HC, 40Dry...'
+													required
+													maxLength={100}
+												/>
+											</div>
+										)}
+
+										{ modal === 'LCL' && (
+											<div className='col-md-6'>
+												<Input
+													label='Carga Consolidada'
+													type='text'
+													id='quote-cargo'
+													placeholder='Metros cúbicos, peso, etc'
+													required
+													maxLength={150}
+												/>
+											</div>
+										)}
+
+									</>
+								)}
+
+								<div className='col-md-6 col-lg-4'>
+									<Input
+										label='Incoterms'
+										type='text'
+										id='quote-incoterms'
+										placeholder='EXW, CIF, FOB...'
+										maxLength={100}
+									/>
+								</div>
+
+								<div className='col-md-6 col-lg-4'>
+									<Input
+										label='Origem'
+										type='text'
+										id='quote-from'
+										placeholder='Cidade / País'
 										required
 										maxLength={100}
 									/>
@@ -113,31 +202,9 @@ export default function Quote() {
 
 								<div className='col-md-6 col-lg-4'>
 									<Input
-										label='Tipo de transporte'
-										type='text'
-										id='quote-transport'
-										placeholder='Frete marítimo, aéreo...'
-										required
-										maxLength={100}
-									/>
-								</div>
-
-								<div className='col-md-6'>
-									<Input
-										label='Origem'
-										type='text'
-										id='quote-origin'
-										placeholder='Cidade / País'
-										required
-										maxLength={100}
-									/>
-								</div>
-
-								<div className='col-md-6'>
-									<Input
 										label='Destino'
 										type='text'
-										id='quote-destiny'
+										id='quote-to'
 										placeholder='Cidade / País'
 										required
 										maxLength={100}

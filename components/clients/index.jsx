@@ -24,7 +24,15 @@ export default function Clients() {
 		{ name: 'MSC', image: '/img/clients/msc.svg', },
 		{ name: 'Evergreen', image: '/img/clients/evergreen.svg', },
 		{ name: 'TCP', image: '/img/clients/tcp.svg', },
-		{ name: 'Hapag Lloyd', image: '/img/clients/hapag-lloyd.svg', }
+		{ name: 'Hapag Lloyd', image: '/img/clients/hapag-lloyd.svg', },
+		{ name: 'Emirates', image: '/img/clients/emirates.svg', },
+		{ name: 'Qtar Airlines', image: '/img/clients/qtar.svg', },
+		{ name: 'Lufthansa', image: '/img/clients/lufthansa.svg', },
+		{ name: 'British Airlines', image: '/img/clients/british-airlines.svg', },
+		{ name: 'Cargolux', image: '/img/clients/cargolux.svg', },
+		{ name: 'Etihad', image: '/img/clients/etihad.svg', },
+		{ name: 'American Airlines', image: '/img/clients/american-airlines.svg', },
+		{ name: 'TAP Airlines', image: '/img/clients/tap.svg', }
 	]
 
 	return (

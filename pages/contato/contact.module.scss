@@ -95,6 +95,23 @@
                                 color: $black;
                             }
                         }
+
+                        input {
+                            &:-webkit-autofill {
+                                @media #{$mq-md-max} {
+                                    background: $white;
+                                    box-shadow: inset 10rem 10rem $white;
+                                    -webkit-text-fill-color: $black;
+                                }
+                            }
+                        }
+
+                        textarea {
+                            @media #{$mq-md-max} {
+                                color: $black;
+                                -webkit-text-fill-color: $black;
+                            }
+                        }
                     }
                 }
             }

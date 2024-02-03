@@ -8,6 +8,12 @@
 .modalDesc {
     display: block;
     margin: calc(var(--section-space) / 4) 0 calc(var(--section-space) / 3) 0;
+
+    br {
+        @media #{$mq-sm-max} {
+            display: none;
+        }
+    }
 }
 
 .button {

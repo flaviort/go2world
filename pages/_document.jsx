@@ -11,16 +11,12 @@ export default function Document() {
 					src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GTAG}`}
 				/>
 
-				<Script id="gtag-script" strategy='lazyOnload'>
+				<Script id='gtag-script' strategy='lazyOnload'>
     				{`
         				window.dataLayer = window.dataLayer || [];
-        				function gtag() {
-            				dataLayer.push(arguments);
-        				}
-        				gtag('js', new Date());
-        				gtag('config', '${process.env.GTAG}', {
-            				page_path: window.location.pathname,
-        				});
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', '${process.env.GTAG}');
     				`}
 				</Script>
 				

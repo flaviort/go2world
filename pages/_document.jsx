@@ -14,9 +14,13 @@ export default function Document() {
 				<Script id='gtag-script' strategy='lazyOnload'>
     				{`
         				window.dataLayer = window.dataLayer || [];
-						function gtag(){dataLayer.push(arguments);}
-						gtag('js', new Date());
-						gtag('config', '${process.env.GTAG}');
+        				function gtag() {
+            				dataLayer.push(arguments);
+        				}
+        				gtag('js', new Date());
+        				gtag('config', '${process.env.GTAG}', {
+            				page_path: window.location.pathname,
+        				});
     				`}
 				</Script>
 				

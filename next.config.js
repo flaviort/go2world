@@ -3,9 +3,6 @@ const path = require('path')
 module.exports = {
 	//assetPrefix: './',
 	//basePath: process.env.PUBLIC_URL,
-	env: {
-		RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED: false
-  	},
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'assets/scss')],
 		prependData: `@import 'atoms/variables.scss';`
